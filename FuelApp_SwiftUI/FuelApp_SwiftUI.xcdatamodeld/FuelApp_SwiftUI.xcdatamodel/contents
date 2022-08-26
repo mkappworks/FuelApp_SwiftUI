@@ -5,24 +5,31 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="fuelType" attributeType="String"/>
         <attribute name="pumpedAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="vehicleFuelTransactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VehicleFuelTransaction" inverseName="fuelTransactions" inverseEntity="VehicleFuelTransaction"/>
     </entity>
     <entity name="Quota" representedClassName="Quota" syncable="YES" codeGenerationType="class">
         <attribute name="quotaAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="vehicleType" attributeType="String"/>
+        <relationship name="vehicles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="quotas" inverseEntity="Vehicle"/>
     </entity>
     <entity name="Vehicle" representedClassName="Vehicle" syncable="YES" codeGenerationType="class">
         <attribute name="fuelType" attributeType="String"/>
+        <attribute name="registeredDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="vehicleId" attributeType="String"/>
         <attribute name="vehicleType" attributeType="String"/>
+        <relationship name="quotas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quota" inverseName="vehicles" inverseEntity="Quota"/>
+        <relationship name="vehicleFuelTransactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VehicleFuelTransaction" inverseName="vehicles" inverseEntity="VehicleFuelTransaction"/>
     </entity>
     <entity name="VehicleFuelTransaction" representedClassName="VehicleFuelTransaction" syncable="YES" codeGenerationType="class">
         <attribute name="fuelTransactionId" attributeType="String"/>
         <attribute name="vehicleId" attributeType="String"/>
+        <relationship name="fuelTransactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FuelTransaction" inverseName="vehicleFuelTransactions" inverseEntity="FuelTransaction"/>
+        <relationship name="vehicles" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="vehicleFuelTransactions" inverseEntity="Vehicle"/>
     </entity>
     <elements>
-        <element name="Quota" positionX="-27" positionY="27" width="128" height="59"/>
-        <element name="Vehicle" positionX="0" positionY="54" width="128" height="74"/>
-        <element name="FuelTransaction" positionX="27" positionY="99" width="128" height="89"/>
-        <element name="VehicleFuelTransaction" positionX="0" positionY="90" width="128" height="59"/>
+        <element name="FuelTransaction" positionX="-438.1585083007812" positionY="169.3786163330078" width="128" height="104"/>
+        <element name="Quota" positionX="-83.821044921875" positionY="398.1251525878906" width="128" height="74"/>
+        <element name="Vehicle" positionX="-273.2332153320312" positionY="179.530517578125" width="128" height="119"/>
+        <element name="VehicleFuelTransaction" positionX="-362.2369384765625" positionY="400.739501953125" width="128" height="89"/>
     </elements>
 </model>
