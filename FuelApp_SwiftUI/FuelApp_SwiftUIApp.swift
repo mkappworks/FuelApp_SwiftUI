@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct FuelApp_SwiftUIApp: App {
-    let persistenceController = PersistenceController.shared
-
     var body: some Scene {
         WindowGroup {
+          let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
+
+            
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, viewContext)
         }
     }
 }
