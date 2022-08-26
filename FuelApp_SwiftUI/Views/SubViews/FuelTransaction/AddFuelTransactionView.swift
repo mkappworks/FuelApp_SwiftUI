@@ -1,20 +1,46 @@
 //
 //  AddFuelTransactionView.swift
-//  FuelApp_SwiftUI
+//  FuelManagement_SwiftUI (iOS)
 //
-//  Created by Malith Kuruppu on 2022-08-26.
+//  Created by asiri indatissa on 2022-08-25.
 //
 
 import SwiftUI
 
 struct AddFuelTransactionView: View {
+    @Environment(\.presentationMode) var presentationMode
+       @ObservedObject private var addFuelTransactionViewVM: AddFuelTransactionViewModel
+       
+       init(vm: AddFuelTransactionViewModel){
+           self.addFuelTransactionViewVM = vm
+       }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack{
+            
+            Form{
+                TextField("Enter Fuel Type", text: $addFuelTransactionViewVM.fuelType)
+                
+                TextField("Enter Pumped Amount", value: $addFuelTransactionViewVM.pumped, formatter: NumberFormatter())
+                .keyboardType(.decimalPad)
+                    Button("Save"){
+                        addFuelTransactionViewVM.save()
+                        presentationMode.wrappedValue.dismiss()
+                    }.centerHorizontally()
+                    
+                        .navigationTitle("Add Fuel to Storage")
+                    
+                }
+                
+            }
+        }
     }
-}
 
 struct AddFuelTransactionView_Previews: PreviewProvider {
     static var previews: some View {
-        AddFuelTransactionView()
+        let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
+        AddFuelTransactionView(vm: AddFuelTransactionViewModel(context: viewContext))
     }
 }
+
+
