@@ -11,8 +11,9 @@ import CoreData
 class AddVehicleViewModel:   ObservableObject{
     @Published var vehicleId: String = ""
     @Published var vehicleType: String = ""
-    @Published var fuelType: FuelType = FuelType.diesel
+    @Published var fuelType: String = "FuelType.diesel"
     @Published var quotas = [QuotaViewModel]()
+    //@Published var fuelTypes = [FuelTypeViewModel]()
     
     var context: NSManagedObjectContext
  
@@ -28,8 +29,8 @@ class AddVehicleViewModel:   ObservableObject{
             let vehicle = Vehicle(context: context)
             
             vehicle.vehicleId = vehicleId
-            vehicle.vehicleType = vehicleType.lowercased()
-            vehicle.fuelType = fuelType.rawValue.lowercased()
+       
+         //Todo:: add quota and fueltype entity
             
             try vehicle.save()
         } catch{
@@ -52,6 +53,20 @@ class AddVehicleViewModel:   ObservableObject{
         }
 
     }
+    
+//    private func getFuelTypes(){
+//        do{
+//            let request = NSFetchRequest<Quota>(entityName: "FuelType")
+//
+//            let fetchedFuelTypes = try context.fetch(request)
+//
+//            self.quotas = fetchedFuelTypes.map(QuotaViewModel.init)
+//
+//        }catch{
+//            print(error)
+//        }
+//
+//    }
     
 }
 

@@ -40,16 +40,16 @@ class AddVehicleFuelViewModel:   ObservableObject{
 //        self.getVehicleFuel()
     }
     
-    func save(){
-        do{
-            let vehicleFuel = VehicleFuelTransaction(context: context)
-            vehicleFuel.vehicleId = vehicleId
-            
-            try vehicleFuel.save()
-        } catch{
-            print(error)
-        }
-    }
+//    func save(){
+//        do{
+//            let vehicleFuel = VehicleFuelTransaction(context: context)
+//            vehicleFuel.vehicleId = vehicleId
+//
+//            try vehicleFuel.save()
+//        } catch{
+//            print(error)
+//        }
+//    }
 
     private func isVehicleIdInCoreDate(){
         self.getVehicle()
@@ -83,9 +83,9 @@ class AddVehicleFuelViewModel:   ObservableObject{
 
     }
     
-    private func getVehicleFuel(){
+    private func getFuelTransaction(){
         do{
-            let request = NSFetchRequest<VehicleFuelTransaction>(entityName: "VehicleFuel")
+            let request = NSFetchRequest<FuelTransaction>(entityName: "FuelTransaction")
 
             let fetchedVehicleFuels = try context.fetch(request)
 
