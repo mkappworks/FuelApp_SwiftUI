@@ -1,5 +1,5 @@
 //
-//  AddStorageView.swift
+//  AddFuelTypeView.swift
 //  FuelApp_SwiftUI
 //
 //  Created by Malith Kuruppu on 2022-08-26.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct AddStorageView: View {
+struct AddFuelTypeView: View {
     var body: some View {
-        Text("Add Storage View")
+        Text("Add Fuel Type View")
     }
 }
 
-struct AddStorageView_Previews: PreviewProvider {
+struct AddFuelTypeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStorageView()
+        AddFuelTypeView()
     }
 }

@@ -82,13 +82,13 @@ struct VehicleViewModel: Identifiable{
         vehicle.vehicleId ?? ""
     }
     
-    var vehicleType: String{
-        vehicle.vehicleType ?? ""
-    }
-    
-    var fuelType: String{
-        vehicle.fuelType ?? ""
-    }
+//    var vehicleType: String{
+//        vehicle.vehicleType ?? ""
+//    }
+//    
+//    var fuelType: String{
+//        vehicle.fuelType ?? ""
+//    }
     
     
 }

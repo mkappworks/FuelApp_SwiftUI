@@ -39,15 +39,15 @@ struct AddVehicleView: View {
                     .pickerStyle(.wheel)
                     
                     
-                    Picker("Select Fuel Type", selection: $addVehicleVM.fuelType) {
-                        ForEach(FuelType.allCases, id: \.self) {
-                            Text($0.rawValue.uppercased())
-                                .font(.system(size: 20))
-                        }
-                        
-                    }
-                    //            .frame(height: 50)
-                    .pickerStyle(.wheel)
+//                    Picker("Select Fuel Type", selection: $addVehicleVM.fuelType) {
+//                        ForEach($addVehicleVM. FuelType.allCases, id: \.self) {
+//                            Text($0.rawValue.uppercased())
+//                                .font(.system(size: 20))
+//                        }
+//                        
+//                    }
+//                            .frame(height: 50)
+//                    .pickerStyle(.wheel)
                     
                     
                     Button("Save"){

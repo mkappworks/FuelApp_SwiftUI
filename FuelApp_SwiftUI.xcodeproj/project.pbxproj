@@ -49,6 +49,10 @@
 		5070D19728B943B400AD90FE /* StorageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19628B943B400AD90FE /* StorageListViewModel.swift */; };
 		5070D19A28B943D800AD90FE /* AddStorageFuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19928B943D800AD90FE /* AddStorageFuelViewModel.swift */; };
 		5070D19C28B943EA00AD90FE /* StorageFuelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19B28B943EA00AD90FE /* StorageFuelListViewModel.swift */; };
+		5070D1A828B9477600AD90FE /* AddFuelTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1A728B9477600AD90FE /* AddFuelTypeView.swift */; };
+		5070D1AA28B9478100AD90FE /* FuelTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1A928B9478100AD90FE /* FuelTypeListView.swift */; };
+		5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */; };
+		5070D1AE28B9482200AD90FE /* FuelTypeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +118,10 @@
 		5070D19628B943B400AD90FE /* StorageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListViewModel.swift; sourceTree = "<group>"; };
 		5070D19928B943D800AD90FE /* AddStorageFuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageFuelViewModel.swift; sourceTree = "<group>"; };
 		5070D19B28B943EA00AD90FE /* StorageFuelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFuelListViewModel.swift; sourceTree = "<group>"; };
+		5070D1A728B9477600AD90FE /* AddFuelTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTypeView.swift; sourceTree = "<group>"; };
+		5070D1A928B9478100AD90FE /* FuelTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListView.swift; sourceTree = "<group>"; };
+		5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTypeViewModel.swift; sourceTree = "<group>"; };
+		5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +389,8 @@
 		5070D19D28B9453E00AD90FE /* FuelType */ = {
 			isa = PBXGroup;
 			children = (
+				5070D1A728B9477600AD90FE /* AddFuelTypeView.swift */,
+				5070D1A928B9478100AD90FE /* FuelTypeListView.swift */,
 			);
 			path = FuelType;
 			sourceTree = "<group>";
@@ -388,6 +398,8 @@
 		5070D19E28B9459B00AD90FE /* FuelType */ = {
 			isa = PBXGroup;
 			children = (
+				5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */,
+				5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */,
 			);
 			path = FuelType;
 			sourceTree = "<group>";
@@ -532,6 +544,7 @@
 				5049C91E28B8F74600DF0E95 /* VehicleFuelListView.swift in Sources */,
 				5049C90E28B8F56100DF0E95 /* VehicleListViewModel.swift in Sources */,
 				5049C8E428B8F25200DF0E95 /* ScanButton.swift in Sources */,
+				5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */,
 				5070D18528B9352B00AD90FE /* StorageListView.swift in Sources */,
 				5070D18728B9358300AD90FE /* AddStorageView.swift in Sources */,
 				5049C90028B8F41500DF0E95 /* FuelTransaction+Extensions.swift in Sources */,
@@ -548,9 +561,12 @@
 				5049C90428B8F48600DF0E95 /* BaseModel.swift in Sources */,
 				5070D18228B9348500AD90FE /* Storage+Extensions.swift in Sources */,
 				5049C8F828B8F3B400DF0E95 /* CoreDataManager.swift in Sources */,
+				5070D1A828B9477600AD90FE /* AddFuelTypeView.swift in Sources */,
+				5070D1AE28B9482200AD90FE /* FuelTypeListViewModel.swift in Sources */,
 				5049C91228B8F59000DF0E95 /* QuotaListViewModel.swift in Sources */,
 				5070D19C28B943EA00AD90FE /* StorageFuelListViewModel.swift in Sources */,
 				5049C90A28B8F51900DF0E95 /* AddVehicleFuelViewModel.swift in Sources */,
+				5070D1AA28B9478100AD90FE /* FuelTypeListView.swift in Sources */,
 				5049C8AF28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift in Sources */,
 				5049C90C28B8F53D00DF0E95 /* AddVehicleViewModel.swift in Sources */,
 				5049C8FE28B8F40400DF0E95 /* View+Extensions.swift in Sources */,
