@@ -30,8 +30,3 @@ extension BaseModel where Self:NSManagedObject {
     
 }
 
-enum FuelType: String, CaseIterable{
-    case diesel = "Diesel"
-    case petrol = "Petrol"
-}
-

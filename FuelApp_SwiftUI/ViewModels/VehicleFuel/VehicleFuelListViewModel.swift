@@ -12,13 +12,13 @@ import CoreData
 class VehicleFuelListViewModel: NSObject, ObservableObject{
     
     @Published var vehicleFuels = [VehicleFuelViewModel]()
-    private let fetchedResultsController: NSFetchedResultsController<VehicleFuelTransaction>
+    private let fetchedResultsController: NSFetchedResultsController<FuelTransaction>
     private (set) var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext){
         self.context = context
         fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: VehicleFuelTransaction.all,
+            fetchRequest: FuelTransaction.all,
             managedObjectContext: context,
             sectionNameKeyPath: nil,
             cacheName: nil
@@ -44,7 +44,7 @@ class VehicleFuelListViewModel: NSObject, ObservableObject{
     
     func deleteVehicleFuel(vehicleFuelId: NSManagedObjectID){
         do{
-            guard let vehicleFuel = try context.existingObject(with: vehicleFuelId) as? VehicleFuelTransaction
+            guard let vehicleFuel = try context.existingObject(with: vehicleFuelId) as? FuelTransaction
             else{
                 return
             }
@@ -58,7 +58,7 @@ class VehicleFuelListViewModel: NSObject, ObservableObject{
 
 extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        guard let fetchedVehicleFuels = controller.fetchedObjects as? [VehicleFuelTransaction] else{
+        guard let fetchedVehicleFuels = controller.fetchedObjects as? [FuelTransaction] else{
             return
         }
         
@@ -68,9 +68,9 @@ extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{
 }
 
 struct VehicleFuelViewModel: Identifiable{
-    private var vehicleFuel: VehicleFuelTransaction
+    private var vehicleFuel: FuelTransaction
     
-    init(vehicleFuel: VehicleFuelTransaction){
+    init(vehicleFuel: FuelTransaction){
         self.vehicleFuel = vehicleFuel
     }
     
@@ -79,7 +79,8 @@ struct VehicleFuelViewModel: Identifiable{
     }
     
     var vehicleId: String{
-        vehicleFuel.vehicleId ?? ""
+        vehicleFuel.vehicles?.vehicleId ?? ""
+        
     }
     
     

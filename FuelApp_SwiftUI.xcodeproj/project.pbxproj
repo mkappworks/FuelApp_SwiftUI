@@ -21,11 +21,9 @@
 		5049C8EC28B8F2A000DF0E95 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8EB28B8F2A000DF0E95 /* HelpView.swift */; };
 		5049C8EE28B8F2AB00DF0E95 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8ED28B8F2AB00DF0E95 /* AnalysisView.swift */; };
 		5049C8F828B8F3B400DF0E95 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8F728B8F3B400DF0E95 /* CoreDataManager.swift */; };
-		5049C8FA28B8F3E400DF0E95 /* Quota+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8F928B8F3E400DF0E95 /* Quota+Extensions.swift */; };
 		5049C8FC28B8F3F300DF0E95 /* Vehicle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8FB28B8F3F300DF0E95 /* Vehicle+Extensions.swift */; };
 		5049C8FE28B8F40400DF0E95 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8FD28B8F40400DF0E95 /* View+Extensions.swift */; };
 		5049C90028B8F41500DF0E95 /* FuelTransaction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8FF28B8F41500DF0E95 /* FuelTransaction+Extensions.swift */; };
-		5049C90228B8F42C00DF0E95 /* VehicleFuelTransaction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C90128B8F42C00DF0E95 /* VehicleFuelTransaction+Extensions.swift */; };
 		5049C90428B8F48600DF0E95 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C90328B8F48600DF0E95 /* BaseModel.swift */; };
 		5049C90628B8F4A500DF0E95 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C90528B8F4A500DF0E95 /* PageModel.swift */; };
 		5049C90828B8F50500DF0E95 /* VehicleFuelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C90728B8F50500DF0E95 /* VehicleFuelListViewModel.swift */; };
@@ -40,8 +38,17 @@
 		5049C91A28B8F70200DF0E95 /* QuotaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C91928B8F70200DF0E95 /* QuotaListView.swift */; };
 		5049C91C28B8F73500DF0E95 /* AddVehicleFuelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C91B28B8F73500DF0E95 /* AddVehicleFuelView.swift */; };
 		5049C91E28B8F74600DF0E95 /* VehicleFuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C91D28B8F74600DF0E95 /* VehicleFuelListView.swift */; };
-		5049C92028B8F75300DF0E95 /* AddFuelTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C91F28B8F75300DF0E95 /* AddFuelTransactionView.swift */; };
-		5049C92228B8F75B00DF0E95 /* FuelTransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C92128B8F75B00DF0E95 /* FuelTransactionListView.swift */; };
+		5070D18028B9345600AD90FE /* Quota+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D17F28B9345600AD90FE /* Quota+Extensions.swift */; };
+		5070D18228B9348500AD90FE /* Storage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18128B9348500AD90FE /* Storage+Extensions.swift */; };
+		5070D18528B9352B00AD90FE /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18428B9352B00AD90FE /* StorageListView.swift */; };
+		5070D18728B9358300AD90FE /* AddStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18628B9358300AD90FE /* AddStorageView.swift */; };
+		5070D18E28B940D000AD90FE /* FuelType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */; };
+		5070D19128B9434100AD90FE /* AddStorageFuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19028B9434100AD90FE /* AddStorageFuel.swift */; };
+		5070D19328B9434B00AD90FE /* StorageFuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19228B9434B00AD90FE /* StorageFuelListView.swift */; };
+		5070D19528B943A200AD90FE /* AddStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19428B943A200AD90FE /* AddStorageViewModel.swift */; };
+		5070D19728B943B400AD90FE /* StorageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19628B943B400AD90FE /* StorageListViewModel.swift */; };
+		5070D19A28B943D800AD90FE /* AddStorageFuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19928B943D800AD90FE /* AddStorageFuelViewModel.swift */; };
+		5070D19C28B943EA00AD90FE /* StorageFuelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19B28B943EA00AD90FE /* StorageFuelListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,11 +86,9 @@
 		5049C8EB28B8F2A000DF0E95 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		5049C8ED28B8F2AB00DF0E95 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		5049C8F728B8F3B400DF0E95 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		5049C8F928B8F3E400DF0E95 /* Quota+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quota+Extensions.swift"; sourceTree = "<group>"; };
 		5049C8FB28B8F3F300DF0E95 /* Vehicle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vehicle+Extensions.swift"; sourceTree = "<group>"; };
 		5049C8FD28B8F40400DF0E95 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		5049C8FF28B8F41500DF0E95 /* FuelTransaction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FuelTransaction+Extensions.swift"; sourceTree = "<group>"; };
-		5049C90128B8F42C00DF0E95 /* VehicleFuelTransaction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehicleFuelTransaction+Extensions.swift"; sourceTree = "<group>"; };
 		5049C90328B8F48600DF0E95 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		5049C90528B8F4A500DF0E95 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		5049C90728B8F50500DF0E95 /* VehicleFuelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFuelListViewModel.swift; sourceTree = "<group>"; };
@@ -98,8 +103,17 @@
 		5049C91928B8F70200DF0E95 /* QuotaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotaListView.swift; sourceTree = "<group>"; };
 		5049C91B28B8F73500DF0E95 /* AddVehicleFuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleFuelView.swift; sourceTree = "<group>"; };
 		5049C91D28B8F74600DF0E95 /* VehicleFuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFuelListView.swift; sourceTree = "<group>"; };
-		5049C91F28B8F75300DF0E95 /* AddFuelTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTransactionView.swift; sourceTree = "<group>"; };
-		5049C92128B8F75B00DF0E95 /* FuelTransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTransactionListView.swift; sourceTree = "<group>"; };
+		5070D17F28B9345600AD90FE /* Quota+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quota+Extensions.swift"; sourceTree = "<group>"; };
+		5070D18128B9348500AD90FE /* Storage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+Extensions.swift"; sourceTree = "<group>"; };
+		5070D18428B9352B00AD90FE /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
+		5070D18628B9358300AD90FE /* AddStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageView.swift; sourceTree = "<group>"; };
+		5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FuelType+Extensions.swift"; sourceTree = "<group>"; };
+		5070D19028B9434100AD90FE /* AddStorageFuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageFuel.swift; sourceTree = "<group>"; };
+		5070D19228B9434B00AD90FE /* StorageFuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFuelListView.swift; sourceTree = "<group>"; };
+		5070D19428B943A200AD90FE /* AddStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageViewModel.swift; sourceTree = "<group>"; };
+		5070D19628B943B400AD90FE /* StorageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListViewModel.swift; sourceTree = "<group>"; };
+		5070D19928B943D800AD90FE /* AddStorageFuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageFuelViewModel.swift; sourceTree = "<group>"; };
+		5070D19B28B943EA00AD90FE /* StorageFuelListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFuelListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,10 +215,11 @@
 			isa = PBXGroup;
 			children = (
 				5049C8FF28B8F41500DF0E95 /* FuelTransaction+Extensions.swift */,
-				5049C8F928B8F3E400DF0E95 /* Quota+Extensions.swift */,
 				5049C8FD28B8F40400DF0E95 /* View+Extensions.swift */,
 				5049C8FB28B8F3F300DF0E95 /* Vehicle+Extensions.swift */,
-				5049C90128B8F42C00DF0E95 /* VehicleFuelTransaction+Extensions.swift */,
+				5070D17F28B9345600AD90FE /* Quota+Extensions.swift */,
+				5070D18128B9348500AD90FE /* Storage+Extensions.swift */,
+				5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,10 +237,12 @@
 		5049C8E028B8F21800DF0E95 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5049C8F428B8F30D00DF0E95 /* FuelTransaction */,
+				5070D19E28B9459B00AD90FE /* FuelType */,
 				5049C8F628B8F31D00DF0E95 /* Quota */,
+				5070D18828B935A600AD90FE /* Storage */,
+				5070D19828B943BC00AD90FE /* StorageFuel */,
 				5049C8F528B8F31600DF0E95 /* Vehicle */,
-				5049C8F328B8F2F900DF0E95 /* VehicleFuelTransaction */,
+				5049C8F328B8F2F900DF0E95 /* VehicleFuel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -261,10 +278,12 @@
 		5049C8E828B8F28400DF0E95 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				5049C8F128B8F2BE00DF0E95 /* FuelTransaction */,
+				5070D19D28B9453E00AD90FE /* FuelType */,
 				5049C8F028B8F2B700DF0E95 /* Quota */,
+				5070D18328B9351A00AD90FE /* Storage */,
+				5070D18F28B9432A00AD90FE /* StorageFuel */,
 				5049C8EF28B8F2B000DF0E95 /* Vehicle */,
-				5049C8F228B8F2C700DF0E95 /* VehicleFuelTransaction */,
+				5049C8F228B8F2C700DF0E95 /* VehicleFuel */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -287,38 +306,22 @@
 			path = Quota;
 			sourceTree = "<group>";
 		};
-		5049C8F128B8F2BE00DF0E95 /* FuelTransaction */ = {
-			isa = PBXGroup;
-			children = (
-				5049C91F28B8F75300DF0E95 /* AddFuelTransactionView.swift */,
-				5049C92128B8F75B00DF0E95 /* FuelTransactionListView.swift */,
-			);
-			path = FuelTransaction;
-			sourceTree = "<group>";
-		};
-		5049C8F228B8F2C700DF0E95 /* VehicleFuelTransaction */ = {
+		5049C8F228B8F2C700DF0E95 /* VehicleFuel */ = {
 			isa = PBXGroup;
 			children = (
 				5049C91B28B8F73500DF0E95 /* AddVehicleFuelView.swift */,
 				5049C91D28B8F74600DF0E95 /* VehicleFuelListView.swift */,
 			);
-			path = VehicleFuelTransaction;
+			path = VehicleFuel;
 			sourceTree = "<group>";
 		};
-		5049C8F328B8F2F900DF0E95 /* VehicleFuelTransaction */ = {
+		5049C8F328B8F2F900DF0E95 /* VehicleFuel */ = {
 			isa = PBXGroup;
 			children = (
 				5049C90928B8F51900DF0E95 /* AddVehicleFuelViewModel.swift */,
 				5049C90728B8F50500DF0E95 /* VehicleFuelListViewModel.swift */,
 			);
-			path = VehicleFuelTransaction;
-			sourceTree = "<group>";
-		};
-		5049C8F428B8F30D00DF0E95 /* FuelTransaction */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FuelTransaction;
+			path = VehicleFuel;
 			sourceTree = "<group>";
 		};
 		5049C8F528B8F31600DF0E95 /* Vehicle */ = {
@@ -337,6 +340,56 @@
 				5049C91128B8F59000DF0E95 /* QuotaListViewModel.swift */,
 			);
 			path = Quota;
+			sourceTree = "<group>";
+		};
+		5070D18328B9351A00AD90FE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5070D18628B9358300AD90FE /* AddStorageView.swift */,
+				5070D18428B9352B00AD90FE /* StorageListView.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5070D18828B935A600AD90FE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5070D19428B943A200AD90FE /* AddStorageViewModel.swift */,
+				5070D19628B943B400AD90FE /* StorageListViewModel.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5070D18F28B9432A00AD90FE /* StorageFuel */ = {
+			isa = PBXGroup;
+			children = (
+				5070D19028B9434100AD90FE /* AddStorageFuel.swift */,
+				5070D19228B9434B00AD90FE /* StorageFuelListView.swift */,
+			);
+			path = StorageFuel;
+			sourceTree = "<group>";
+		};
+		5070D19828B943BC00AD90FE /* StorageFuel */ = {
+			isa = PBXGroup;
+			children = (
+				5070D19928B943D800AD90FE /* AddStorageFuelViewModel.swift */,
+				5070D19B28B943EA00AD90FE /* StorageFuelListViewModel.swift */,
+			);
+			path = StorageFuel;
+			sourceTree = "<group>";
+		};
+		5070D19D28B9453E00AD90FE /* FuelType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FuelType;
+			sourceTree = "<group>";
+		};
+		5070D19E28B9459B00AD90FE /* FuelType */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FuelType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,34 +522,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5070D19528B943A200AD90FE /* AddStorageViewModel.swift in Sources */,
+				5070D19128B9434100AD90FE /* AddStorageFuel.swift in Sources */,
+				5070D19A28B943D800AD90FE /* AddStorageFuelViewModel.swift in Sources */,
 				5049C91028B8F57C00DF0E95 /* AddQuotaViewModel.swift in Sources */,
 				5049C91C28B8F73500DF0E95 /* AddVehicleFuelView.swift in Sources */,
+				5070D19728B943B400AD90FE /* StorageListViewModel.swift in Sources */,
 				5049C8E628B8F26000DF0E95 /* PageView.swift in Sources */,
 				5049C91E28B8F74600DF0E95 /* VehicleFuelListView.swift in Sources */,
 				5049C90E28B8F56100DF0E95 /* VehicleListViewModel.swift in Sources */,
-				5049C92228B8F75B00DF0E95 /* FuelTransactionListView.swift in Sources */,
 				5049C8E428B8F25200DF0E95 /* ScanButton.swift in Sources */,
+				5070D18528B9352B00AD90FE /* StorageListView.swift in Sources */,
+				5070D18728B9358300AD90FE /* AddStorageView.swift in Sources */,
 				5049C90028B8F41500DF0E95 /* FuelTransaction+Extensions.swift in Sources */,
 				5049C8B128B8EA3200DF0E95 /* ContentView.swift in Sources */,
 				5049C8EC28B8F2A000DF0E95 /* HelpView.swift in Sources */,
 				5049C8EE28B8F2AB00DF0E95 /* AnalysisView.swift in Sources */,
 				5049C8EA28B8F29600DF0E95 /* HomeView.swift in Sources */,
-				5049C90228B8F42C00DF0E95 /* VehicleFuelTransaction+Extensions.swift in Sources */,
 				5049C91828B8F6F000DF0E95 /* AddQuotaView.swift in Sources */,
+				5070D18E28B940D000AD90FE /* FuelType+Extensions.swift in Sources */,
+				5070D19328B9434B00AD90FE /* StorageFuelListView.swift in Sources */,
 				5049C90628B8F4A500DF0E95 /* PageModel.swift in Sources */,
 				5049C8FC28B8F3F300DF0E95 /* Vehicle+Extensions.swift in Sources */,
 				5049C91A28B8F70200DF0E95 /* QuotaListView.swift in Sources */,
 				5049C90428B8F48600DF0E95 /* BaseModel.swift in Sources */,
-				5049C8FA28B8F3E400DF0E95 /* Quota+Extensions.swift in Sources */,
+				5070D18228B9348500AD90FE /* Storage+Extensions.swift in Sources */,
 				5049C8F828B8F3B400DF0E95 /* CoreDataManager.swift in Sources */,
 				5049C91228B8F59000DF0E95 /* QuotaListViewModel.swift in Sources */,
+				5070D19C28B943EA00AD90FE /* StorageFuelListViewModel.swift in Sources */,
 				5049C90A28B8F51900DF0E95 /* AddVehicleFuelViewModel.swift in Sources */,
 				5049C8AF28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift in Sources */,
 				5049C90C28B8F53D00DF0E95 /* AddVehicleViewModel.swift in Sources */,
 				5049C8FE28B8F40400DF0E95 /* View+Extensions.swift in Sources */,
+				5070D18028B9345600AD90FE /* Quota+Extensions.swift in Sources */,
 				5049C91428B8F69700DF0E95 /* AddVehicleView.swift in Sources */,
 				5049C90828B8F50500DF0E95 /* VehicleFuelListViewModel.swift in Sources */,
-				5049C92028B8F75300DF0E95 /* AddFuelTransactionView.swift in Sources */,
 				5049C8BB28B8EA3300DF0E95 /* FuelApp_SwiftUI.xcdatamodeld in Sources */,
 				5049C91628B8F6AB00DF0E95 /* VehicleListView.swift in Sources */,
 			);

@@ -15,19 +15,28 @@ struct HomeView: View {
             VStack(spacing: 100){
                 
                 NavigationLink( destination: VehicleListView(vm: VehicleListViewModel(context: viewContext)) ){
-                    Text("View Vehicle")
+                    Text("View Vehicles")
+                }
+                
+                NavigationLink( destination: StorageListView() ){
+                    Text("View Storages")
                 }
                 
                 NavigationLink( destination: VehicleFuelListView() ){
                     Text("View Vehicle Fuel History")
                 }
                 
-                NavigationLink( destination: FuelTransactionListView() ){
+                NavigationLink( destination: StorageFuelListView() ){
                     Text("View Storage Fuel History")
                 }
                 
+                NavigationLink( destination: FuelTypeListView() ){
+                    Text("View Fuel Types")
+                }
+                
+                
                 NavigationLink( destination: QuotaListView(vm: QuotaListViewModel(context: viewContext)) ){
-                    Text("View Quota")
+                    Text("View Vehicle Quotas")
                 }
                 
             }
