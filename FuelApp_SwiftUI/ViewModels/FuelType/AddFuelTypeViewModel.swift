@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class AddFuelTypeViewModel:  ObservableObject{
-    @Published var name: String = "diesel"
+    @Published var name: String = ""
     
     var context: NSManagedObjectContext
  
