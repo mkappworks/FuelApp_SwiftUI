@@ -28,26 +28,25 @@ struct AddVehicleView: View {
                         .disabled(true)
                     
                     
-                    Picker("Select Vehicle Type", selection: $addVehicleVM.vehicleType) {
-                        ForEach(addVehicleVM.quotas, id: \.self.vehicleType) {
+                    Picker("Select Vehicle Type", selection: $addVehicleVM.selectedQuota) {
+                        ForEach(addVehicleVM.quotas, id: \.self.id) {
                             Text($0.vehicleType.uppercased())
                                 .font(.system(size: 20))
                         }
                         
                     }
-                    //            .frame(height: 50)
+                    .frame(height: 50)
                     .pickerStyle(.wheel)
                     
-                    
-//                    Picker("Select Fuel Type", selection: $addVehicleVM.fuelType) {
-//                        ForEach($addVehicleVM. FuelType.allCases, id: \.self) {
-//                            Text($0.rawValue.uppercased())
-//                                .font(.system(size: 20))
-//                        }
-//                        
-//                    }
-//                            .frame(height: 50)
-//                    .pickerStyle(.wheel)
+                    Picker("Select Fuel Type", selection: $addVehicleVM.selectedFuelType) {
+                        ForEach(addVehicleVM.fuelTypes, id: \.self.id) {
+                            Text($0.name.uppercased())
+                                .font(.system(size: 20))
+                        }
+
+                    }
+                    .frame(height: 50)
+                    .pickerStyle(.wheel)
                     
                     
                     Button("Save"){
@@ -61,6 +60,11 @@ struct AddVehicleView: View {
                 
             }
         }
+        .alert(addVehicleVM.errorMessage, isPresented: $addVehicleVM.isError) {
+                   Button("OK", role: .cancel) {
+                       presentationMode.wrappedValue.dismiss()
+                   }
+               }
     }
 }
 
