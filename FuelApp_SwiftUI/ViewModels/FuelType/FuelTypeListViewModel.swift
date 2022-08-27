@@ -65,7 +65,7 @@ extension FuelTypeListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct FuelTypeViewModel: Identifiable{
+struct FuelTypeViewModel: Identifiable, Hashable{
     private var fuelType: FuelType
     
     init(fuelType: FuelType){
@@ -80,7 +80,9 @@ struct FuelTypeViewModel: Identifiable{
         fuelType.name ?? ""
     }
     
-    
+    var fuelTypeEntity: FuelType{
+        fuelType
+    }
     
 }
 
