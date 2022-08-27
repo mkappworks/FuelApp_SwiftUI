@@ -18,6 +18,7 @@
         <relationship name="vehicles" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="quotas" inverseEntity="Vehicle"/>
     </entity>
     <entity name="Storage" representedClassName="Storage" syncable="YES" codeGenerationType="class">
+        <attribute name="currentAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="storageCapacity" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="fuelTransactions" toMany="YES" deletionRule="Nullify" destinationEntity="FuelTransaction" inverseName="storages" inverseEntity="FuelTransaction"/>
         <relationship name="fuelTypes" maxCount="1" deletionRule="Nullify" destinationEntity="FuelType" inverseName="storages" inverseEntity="FuelType"/>
@@ -31,9 +32,9 @@
     </entity>
     <elements>
         <element name="FuelTransaction" positionX="-576.6755981445312" positionY="53.68533325195312" width="128" height="104"/>
-        <element name="FuelType" positionX="-360" positionY="162" width="128" height="14"/>
+        <element name="FuelType" positionX="-360" positionY="162" width="128" height="74"/>
         <element name="Quota" positionX="45.30487060546875" positionY="171.0879974365234" width="128" height="28"/>
-        <element name="Storage" positionX="-225" positionY="162" width="128" height="74"/>
+        <element name="Storage" positionX="-225" positionY="162" width="128" height="89"/>
         <element name="Vehicle" positionX="-141.676025390625" positionY="156.6607971191406" width="128" height="104"/>
     </elements>
 </model>
