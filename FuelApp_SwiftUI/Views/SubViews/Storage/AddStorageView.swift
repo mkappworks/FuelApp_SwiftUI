@@ -31,14 +31,11 @@ struct AddStorageView: View {
                     .frame(height: 75)
                     .pickerStyle(.wheel)
                 }
-                TextField("Enter Storage Capacity", value:
-                            $addStorageVM.storageCapacity,
-                          formatter: NumberFormatter()
-                .keyboardType(.decimalPad)
-                Button("Save"){
+                          TextField("Enter Storage Capacity", value: $addStorageVM.storageCapacity, formatter: NumberFormatter())
+                          .keyboardType(.decimalPad)
+                          Button("Save"){
                     addStorageVM.save()
-                    presentationMode.wrappedValue.
-                        dismiss()
+                    presentationMode.wrappedValue.dismiss()
                     }.centerHorizontally()
                     
                     .navigationTitle("Add New FuelType")
