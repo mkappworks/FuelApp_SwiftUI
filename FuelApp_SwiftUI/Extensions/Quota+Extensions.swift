@@ -6,12 +6,3 @@
 //
 
 import Foundation
-import CoreData
-
-extension Quota: BaseModel{
-    static var all: NSFetchRequest<Quota>{
-        let request = Quota.fetchRequest()
-        request.sortDescriptors = []
-        return request
-    }
-}
