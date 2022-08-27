@@ -14,7 +14,7 @@ struct FuelApp_SwiftUIApp: App {
           let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
 
             
-            ContentView()
+            SplashScreenView()
                 .environment(\.managedObjectContext, viewContext)
         }
     }
