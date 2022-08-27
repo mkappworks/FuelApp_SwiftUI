@@ -28,16 +28,11 @@ struct VehicleListView: View {
             VStack{
                 List{
                     ForEach(vehicleListVM.vehicles){vehicle in
-                        VStack{
-                            HStack{
-                                Text("Registered Date : \(vehicle.date)")
-                                Text("Vehicle Number : \(vehicle.vehicleId)")
-                            }
-                            
-                            HStack{
-                                Text("Vehicle Type : \(vehicle.vehicleType.uppercased())")
-                                Text("Fuel Type : \(vehicle.fuelType.uppercased())")
-                            }
+                        VStack(alignment: .leading){
+                            Text("Vehicle Number : \(vehicle.vehicleId)")
+                            Text("Registered Date : \(vehicle.date, style: .date)")
+                            Text("Vehicle Type : \(vehicle.vehicleType.uppercased())")
+                            Text("Fuel Type : \(vehicle.fuelType.uppercased())")
                         }
                     }
                     .onDelete(perform: deleteVehicle)

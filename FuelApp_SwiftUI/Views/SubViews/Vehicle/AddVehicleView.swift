@@ -18,8 +18,6 @@ struct AddVehicleView: View {
     var body: some View {
         
         VStack{
-            
-            
             Form{
                 ScanButton(scannedText: $addVehicleVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
                 
@@ -27,27 +25,31 @@ struct AddVehicleView: View {
                     TextField("Vehicle Number", text: $addVehicleVM.vehicleId)
                         .disabled(true)
                     
-                    
-                    Picker("Select Vehicle Type", selection: $addVehicleVM.selectedQuota) {
-                        ForEach(addVehicleVM.quotas, id: \.self.id) {
-                            Text($0.vehicleType.uppercased())
-                                .font(.system(size: 20))
+                    Section("Select Vehicle Type"){
+                        Picker("Select Vehicle Type", selection: $addVehicleVM.selectedQuota) {
+                            ForEach(addVehicleVM.quotas, id: \.self) {(quota: QuotaViewModel) in
+                                Text(quota.vehicleType.uppercased())
+                                    .tag(quota as QuotaViewModel?)
+                                    .font(.system(size: 20))
+                            }
+                            
                         }
-                        
+                        .frame(height: 75)
+                        .pickerStyle(.wheel)
                     }
-                    .frame(height: 50)
-                    .pickerStyle(.wheel)
                     
-                    Picker("Select Fuel Type", selection: $addVehicleVM.selectedFuelType) {
-                        ForEach(addVehicleVM.fuelTypes, id: \.self.id) {
-                            Text($0.name.uppercased())
-                                .font(.system(size: 20))
+                    Section("Select Fuel Type"){
+                        Picker("Select Fuel Type", selection: $addVehicleVM.selectedFuelType) {
+                            ForEach(addVehicleVM.fuelTypes, id: \.self)  {(fuelType: FuelTypeViewModel) in
+                                Text(fuelType.name.uppercased())
+                                    .tag(fuelType as FuelTypeViewModel?)
+                                    .font(.system(size: 20))
+                            }
+                            
                         }
-
+                        .frame(height: 75)
+                        .pickerStyle(.wheel)
                     }
-                    .frame(height: 50)
-                    .pickerStyle(.wheel)
-                    
                     
                     Button("Save"){
                         addVehicleVM.save()
@@ -55,16 +57,15 @@ struct AddVehicleView: View {
                     }.centerHorizontally()
                     
                         .navigationTitle("Add New Vehicle")
-                    
                 }
                 
             }
         }
         .alert(addVehicleVM.errorMessage, isPresented: $addVehicleVM.isError) {
-                   Button("OK", role: .cancel) {
-                       presentationMode.wrappedValue.dismiss()
-                   }
-               }
+            Button("OK", role: .cancel) {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
     }
 }
 
