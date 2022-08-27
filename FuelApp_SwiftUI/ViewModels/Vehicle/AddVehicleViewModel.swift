@@ -21,7 +21,7 @@ class AddVehicleViewModel:   ObservableObject{
     @Published var fuelTypes = [FuelTypeViewModel]()
     
     var context: NSManagedObjectContext
- 
+    
     
     init(context: NSManagedObjectContext){
         self.context = context
@@ -30,10 +30,10 @@ class AddVehicleViewModel:   ObservableObject{
         self.isError = false
         
         self.getQuotas()
-
+        
         self.getFuelTypes()
         
-        if(errorMessage != ""){
+        if(self.errorMessage != ""){
             self.isError = true
         }
         
@@ -48,7 +48,7 @@ class AddVehicleViewModel:   ObservableObject{
             
             
             vehicle.quotas = self.selectedQuota?.quotaEntity
-    
+            
             vehicle.fuelTypes = self.selectedFuelType?.fuelTypeEntity
             
             try vehicle.save()
@@ -56,51 +56,50 @@ class AddVehicleViewModel:   ObservableObject{
             print(error)
         }
     }
-
+    
     
     
     private func getQuotas(){
         do{
             let request = NSFetchRequest<Quota>(entityName: "Quota")
-
+            
             let fetchedQuotas = try context.fetch(request)
             
             self.quotas = fetchedQuotas.map(QuotaViewModel.init)
             
             if(self.quotas.count == 0){
                 errorMessage.append(contentsOf: "No Quotas found. Please add a Quota. ")
-                print("No quotas")
                 return
             }
-
+            
             self.selectedQuota = self.quotas[0]
-
+            
         }catch{
             print(error)
         }
-
+        
     }
     
     private func getFuelTypes(){
         do{
             let request = NSFetchRequest<FuelType>(entityName: "FuelType")
-
+            
             let fetchedFuelTypes = try context.fetch(request)
-        
+            
             self.fuelTypes = fetchedFuelTypes.map(FuelTypeViewModel.init)
             
             if(self.fuelTypes.count == 0){
                 errorMessage.append(contentsOf: "No Fuel Types found. Please add a Fuel Type. ")
-                print("No Fuel Types")
                 return
             }
             
             self.selectedFuelType = self.fuelTypes[0]
             
+            
         }catch{
             print(error)
         }
-
+        
     }
     
 }
