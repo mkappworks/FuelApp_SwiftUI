@@ -18,7 +18,7 @@ struct HomeView: View {
                     Text("View Vehicles")
                 }
                 
-                NavigationLink( destination: StorageListView() ){
+                NavigationLink( destination: StorageListView(vm: StorageListViewModel(context: viewContext)) ){
                     Text("View Storages")
                 }
                 
@@ -30,7 +30,7 @@ struct HomeView: View {
                     Text("View Storage Fuel History")
                 }
                 
-                NavigationLink( destination: FuelTypeListView() ){
+                NavigationLink( destination: FuelTypeListView(vm: FuelTypeListViewModel(context: viewContext)) ){
                     Text("View Fuel Types")
                 }
                 
