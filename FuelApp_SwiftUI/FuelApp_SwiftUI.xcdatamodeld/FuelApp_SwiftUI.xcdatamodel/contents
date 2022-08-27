@@ -9,8 +9,8 @@
     </entity>
     <entity name="FuelType" representedClassName="FuelType" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String"/>
-        <relationship name="storages" maxCount="1" deletionRule="Nullify" destinationEntity="Storage" inverseName="fuelTypes" inverseEntity="Storage"/>
-        <relationship name="vehicles" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="fuelTypes" inverseEntity="Vehicle"/>
+        <relationship name="storages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Storage" inverseName="fuelTypes" inverseEntity="Storage"/>
+        <relationship name="vehicles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="fuelTypes" inverseEntity="Vehicle"/>
     </entity>
     <entity name="Quota" representedClassName="Quota" syncable="YES" codeGenerationType="class">
         <attribute name="quotaAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -32,7 +32,7 @@
     </entity>
     <elements>
         <element name="FuelTransaction" positionX="-576.6755981445312" positionY="53.68533325195312" width="128" height="104"/>
-        <element name="FuelType" positionX="-360" positionY="162" width="128" height="74"/>
+        <element name="FuelType" positionX="-360" positionY="162" width="128" height="14"/>
         <element name="Quota" positionX="45.30487060546875" positionY="171.0879974365234" width="128" height="28"/>
         <element name="Storage" positionX="-225" positionY="162" width="128" height="89"/>
         <element name="Vehicle" positionX="-141.676025390625" positionY="156.6607971191406" width="128" height="104"/>
