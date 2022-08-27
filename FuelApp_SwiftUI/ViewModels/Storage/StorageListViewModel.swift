@@ -82,8 +82,12 @@ struct StorageViewModel: Identifiable{
         storage.storageCapacity
     }
     
+    var currentAmount: Double{
+        storage.currentAmount
+    }
+    
     var fuelType: String{
-        storage.fuelType ?? "Diesel"
+        storage.fuelTypes?.name ?? ""
     }
     
     
