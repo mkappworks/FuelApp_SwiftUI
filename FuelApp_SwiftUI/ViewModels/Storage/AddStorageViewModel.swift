@@ -10,14 +10,13 @@ import CoreData
 
 class AddStorageViewModel:   ObservableObject{
     @Published var storageCapacity: Double = 0.0
-    @Published var fuelType: String = "FuelType.diesel"
     @Published var errorMessage: String = ""
     @Published var selectedFuelType: FuelTypeViewModel?
-
+    
     @Published var fuelTypes = [FuelTypeViewModel]()
-
+    
     var context: NSManagedObjectContext
- 
+    
     
     init(context: NSManagedObjectContext){
         self.context = context
@@ -36,7 +35,7 @@ class AddStorageViewModel:   ObservableObject{
             print(error)
         }
     }
-
+    
     
     
     private func getFuelTypes(){

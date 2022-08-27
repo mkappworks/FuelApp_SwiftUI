@@ -28,10 +28,10 @@ struct StorageListView: View {
             VStack{
                 List{
                     ForEach(storageListVM.storages){storage in
-                        VStack{
-                            Text("Fuel Type : \(storage.fuelType)")
-                            Text("Storage Capacity : \(storage.storageCapacity)")
-                            Text("Current Amount : \(storage.currentAmount)")
+                        VStack(alignment:.leading){
+                            Text("Fuel Type : \(storage.fuelType.uppercased())")
+                            Text("Storage Capacity : \(storage.storageCapacity, specifier: "%.2f")")
+                            Text("Current Amount : \(storage.currentAmount, specifier: "%.2f")")
                         }
                         
                     }

@@ -39,7 +39,7 @@ class StorageListViewModel: NSObject, ObservableObject{
         } catch{
             print(error)
         }
-
+        
     }
     
     func deleteStorage(storageId: NSManagedObjectID){
@@ -81,7 +81,7 @@ struct StorageViewModel: Identifiable, Hashable{
     var storageCapacity: Double{
         storage.storageCapacity
     }
-
+    
     var currentAmount: Double{
         storage.currentAmount
     }
