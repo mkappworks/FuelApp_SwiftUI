@@ -11,10 +11,9 @@ import SwiftUI
 struct FuelApp_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-          let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
-
+            let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
             
-            SplashScreenView()
+            SplashView()
                 .environment(\.managedObjectContext, viewContext)
         }
     }

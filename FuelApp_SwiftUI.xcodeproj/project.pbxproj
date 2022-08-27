@@ -53,6 +53,7 @@
 		5070D1AA28B9478100AD90FE /* FuelTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1A928B9478100AD90FE /* FuelTypeListView.swift */; };
 		5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */; };
 		5070D1AE28B9482200AD90FE /* FuelTypeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */; };
+		507EFAAE28BA701300D5B4F3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAAD28BA701300D5B4F3 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		5070D1A928B9478100AD90FE /* FuelTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListView.swift; sourceTree = "<group>"; };
 		5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTypeViewModel.swift; sourceTree = "<group>"; };
 		5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListViewModel.swift; sourceTree = "<group>"; };
+		507EFAAD28BA701300D5B4F3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				5049C8E028B8F21800DF0E95 /* ViewModels */,
 				5049C8AE28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift */,
 				5049C8B028B8EA3200DF0E95 /* ContentView.swift */,
+				507EFAAD28BA701300D5B4F3 /* SplashView.swift */,
 				5049C8B228B8EA3300DF0E95 /* Assets.xcassets */,
 				5049C8B928B8EA3300DF0E95 /* FuelApp_SwiftUI.xcdatamodeld */,
 				5049C8B428B8EA3300DF0E95 /* Preview Content */,
@@ -575,6 +578,7 @@
 				5049C90828B8F50500DF0E95 /* VehicleFuelListViewModel.swift in Sources */,
 				5049C8BB28B8EA3300DF0E95 /* FuelApp_SwiftUI.xcdatamodeld in Sources */,
 				5049C91628B8F6AB00DF0E95 /* VehicleListView.swift in Sources */,
+				507EFAAE28BA701300D5B4F3 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +665,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fuel App";
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -715,6 +721,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fuel App";
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

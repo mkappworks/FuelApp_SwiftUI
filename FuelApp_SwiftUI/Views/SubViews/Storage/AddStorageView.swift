@@ -24,20 +24,20 @@ struct AddStorageView: View {
                 
                 if(addStorageVM.storageId != ""){
                     
-                    Picker("Select Fuel Type", selection: $addStorageVM.fuelType) {
-                        ForEach(addStorageVM.fuelType, id: \.self.fuelType) {
-                            Text($0.fuelType.uppercased())
-                                .font(.system(size: 20))
-                        }
-                        
-                    }
-                    //            .frame(height: 50)
-                    .pickerStyle(.wheel)
+//                    Picker("Select Fuel Type", selection: $addStorageVM.fuelType) {
+//                        ForEach(addStorageVM.fuelType, id: \.self.fuelType) {
+//                            Text($0.fuelType.uppercased())
+//                                .font(.system(size: 20))
+//                        }
+//                        
+//                    }
+//                    //            .frame(height: 50)
+//                    .pickerStyle(.wheel)
                     
                     
                     
                     Button("Save"){
-                        addVehicleVM.save()
+//                        addVehicleVM.save()
                         presentationMode.wrappedValue.dismiss()
                     }.centerHorizontally()
                     

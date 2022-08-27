@@ -25,14 +25,14 @@ class AddStorageViewModel:   ObservableObject{
     
     func save(){
         do{
-            let storage = Storage(context: context)
-            
-            storage.storageId = storageId
-            storage.storageCapacity = storageCapacity
-            storage.fuelType = fuelType
-         //Todo:: add quota and fueltype entity
-            
-            try storage.save()
+//            let storage = Storage(context: context)
+//            
+//            storage.storageId = storageId
+//            storage.storageCapacity = storageCapacity
+//            storage.fuelType = fuelType
+//         //Todo:: add quota and fueltype entity
+//            
+//            try storage.save()
         } catch{
             print(error)
         }
@@ -42,11 +42,11 @@ class AddStorageViewModel:   ObservableObject{
     
     private func getFuelTypes(){
         do{
-            let request = NSFetchRequest<Quota>(entityName: "FuelType")
-
-            let fetchedFuelTypes = try context.fetch(request)
-
-            self.storages = fetchedFuelTypes.map(FuelTypeViewModel.init)
+//            let request = NSFetchRequest<Quota>(entityName: "FuelType")
+//
+//            let fetchedFuelTypes = try context.fetch(request)
+//
+//            self.storages = fetchedFuelTypes.map(FuelTypeViewModel.init)
 
         }catch{
             print(error)
