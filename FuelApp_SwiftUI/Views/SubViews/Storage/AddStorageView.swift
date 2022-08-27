@@ -18,32 +18,30 @@ struct AddStorageView: View {
     var body: some View {
         
         VStack{
-            
-            
             Form{
-                
-                if(addStorageVM.storageId != ""){
-                    
-//                    Picker("Select Fuel Type", selection: $addStorageVM.fuelType) {
-//                        ForEach(addStorageVM.fuelType, id: \.self.fuelType) {
-//                            Text($0.fuelType.uppercased())
-//                                .font(.system(size: 20))
-//                        }
-//                        
-//                    }
-//                    //            .frame(height: 50)
-//                    .pickerStyle(.wheel)
-                    
-                    
-                    
-                    Button("Save"){
-//                        addVehicleVM.save()
-                        presentationMode.wrappedValue.dismiss()
-                    }.centerHorizontally()
-                    
-                        .navigationTitle("Add New FuelType")
-                    
+                Section("Select Fuel Type"){
+                    Picker("Select Fuel Type", selection: $addStorageVM.selectedFuelType) {
+                        ForEach(addStorageVM.fuelTypes, id: \.self)  {(fuelType: FuelTypeViewModel) in
+                            Text(fuelType.name.uppercased())
+                                .tag(fuelType as FuelTypeViewModel?)
+                                .font(.system(size: 20))
+                        }
+                        
+                    }
+                    .frame(height: 75)
+                    .pickerStyle(.wheel)
                 }
+                Section("Enter Storage Capacity"){
+                    TextField("Enter Storage Capacity", value: $addStorageVM.storageCapacity, formatter: NumberFormatter())
+                        .keyboardType(.decimalPad)
+                }
+                
+                Button("Save"){
+                    addStorageVM.save()
+                    presentationMode.wrappedValue.dismiss()
+                }.centerHorizontally()
+                
+                    .navigationTitle("Add New FuelType")
                 
             }
         }

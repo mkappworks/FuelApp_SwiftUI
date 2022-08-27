@@ -9,13 +9,14 @@ import Foundation
 import CoreData
 
 class AddStorageViewModel:   ObservableObject{
-    @Published var storageId: String = ""
     @Published var storageCapacity: Double = 0.0
-    @Published var fuelType: String = "FuelType.diesel"
-    //@Published var fuelTypes = [FuelTypeViewModel]()
+    @Published var errorMessage: String = ""
+    @Published var selectedFuelType: FuelTypeViewModel?
+    
+    @Published var fuelTypes = [FuelTypeViewModel]()
     
     var context: NSManagedObjectContext
- 
+    
     
     init(context: NSManagedObjectContext){
         self.context = context
@@ -25,33 +26,38 @@ class AddStorageViewModel:   ObservableObject{
     
     func save(){
         do{
-//            let storage = Storage(context: context)
-//            
-//            storage.storageId = storageId
-//            storage.storageCapacity = storageCapacity
-//            storage.fuelType = fuelType
-//         //Todo:: add quota and fueltype entity
-//            
-//            try storage.save()
+            let storage = Storage(context: context)
+            storage.storageCapacity = self.storageCapacity
+            storage.fuelTypes = self.selectedFuelType?.fuelTypeEntity
+            
+            try storage.save()
         } catch{
             print(error)
         }
     }
-
+    
     
     
     private func getFuelTypes(){
         do{
-//            let request = NSFetchRequest<Quota>(entityName: "FuelType")
-//
-//            let fetchedFuelTypes = try context.fetch(request)
-//
-//            self.storages = fetchedFuelTypes.map(FuelTypeViewModel.init)
-
+            let request = NSFetchRequest<FuelType>(entityName: "FuelType")
+            
+            let fetchedFuelTypes = try context.fetch(request)
+            
+            self.fuelTypes = fetchedFuelTypes.map(FuelTypeViewModel.init)
+            
+            if(self.fuelTypes.count == 0){
+                errorMessage.append(contentsOf: "No Fuel Types found. Please add a Fuel Type. ")
+                return
+            }
+            
+            self.selectedFuelType = self.fuelTypes[0]
+            
+            
         }catch{
             print(error)
         }
-
+        
     }
     
     
