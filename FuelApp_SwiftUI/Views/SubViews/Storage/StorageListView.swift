@@ -30,10 +30,8 @@ struct StorageListView: View {
                     ForEach(storageListVM.storages){storage in
                         VStack{
                             Text("Fuel Type : \(storage.fuelType)")
-//                            HStack{
-//                                Text("Vehicle Type : \(vehicle.vehicleType.uppercased())")
-//                                Text("Fuel Type : \(vehicle.fuelType.uppercased())")
-//                            }
+                            Text("Storage Capacity : \(storage.storageCapacity)")
+                            Text("Current Amount : \(storage.currentAmount)")
                         }
                         
                     }
@@ -43,7 +41,7 @@ struct StorageListView: View {
             .sheet(isPresented: $isPresented, onDismiss: {
                 //dismiss
             }, content: {
-                AddVehicleView(vm: AddVehicleViewModel(context: viewContext))
+                AddStorageView(vm: AddStorageViewModel(context: viewContext))
             })
             .navigationTitle("Storages")
             .toolbar{
@@ -61,7 +59,7 @@ struct StorageListView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = CoreDataManager.shared.persistenceStoreController.viewContext
         
-        VehicleListView(vm: VehicleListViewModel(context: viewContext))
+        StorageListView(vm: StorageListViewModel(context: viewContext))
     }
 }
 

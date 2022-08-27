@@ -67,7 +67,7 @@ extension StorageListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct StorageViewModel: Identifiable{
+struct StorageViewModel: Identifiable, Hashable{
     private var storage: Storage
     
     init(storage: Storage){
@@ -81,14 +81,12 @@ struct StorageViewModel: Identifiable{
     var storageCapacity: Double{
         storage.storageCapacity
     }
-    
+
     var currentAmount: Double{
         storage.currentAmount
     }
-    
     var fuelType: String{
         storage.fuelTypes?.name ?? ""
     }
-    
     
 }
