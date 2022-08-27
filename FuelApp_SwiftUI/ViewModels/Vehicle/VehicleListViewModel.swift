@@ -82,6 +82,10 @@ struct VehicleViewModel: Identifiable, Hashable{
         vehicle.vehicleId ?? ""
     }
     
+    var date: Date{
+        vehicle.date!
+    }
+    
     var vehicleType: String{
         vehicle.quotas?.vehicleType ?? ""
     }
