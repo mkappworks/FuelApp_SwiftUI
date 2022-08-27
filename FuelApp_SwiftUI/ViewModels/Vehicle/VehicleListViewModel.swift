@@ -67,7 +67,7 @@ extension VehicleListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct VehicleViewModel: Identifiable{
+struct VehicleViewModel: Identifiable, Hashable{
     private var vehicle: Vehicle
     
     init(vehicle: Vehicle){
@@ -82,13 +82,17 @@ struct VehicleViewModel: Identifiable{
         vehicle.vehicleId ?? ""
     }
     
-//    var vehicleType: String{
-//        vehicle.vehicleType ?? ""
-//    }
-//    
-//    var fuelType: String{
-//        vehicle.fuelType ?? ""
-//    }
+    var date: Date{
+        vehicle.date!
+    }
+    
+    var vehicleType: String{
+        vehicle.quotas?.vehicleType ?? ""
+    }
+
+    var fuelType: String{
+        vehicle.fuelTypes?.name ?? ""
+    }
     
     
 }

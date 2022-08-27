@@ -65,7 +65,7 @@ extension QuotaListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct QuotaViewModel: Identifiable{
+struct QuotaViewModel: Identifiable, Hashable{
     private var quota: Quota
     
     init(quota: Quota){
@@ -84,6 +84,9 @@ struct QuotaViewModel: Identifiable{
         quota.quotaAmount
     }
     
+    var quotaEntity: Quota{
+        quota
+    }
     
 }
 

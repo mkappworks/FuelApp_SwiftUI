@@ -80,9 +80,15 @@ struct VehicleFuelViewModel: Identifiable{
     
     var vehicleId: String{
         vehicleFuel.vehicles?.vehicleId ?? ""
-        
     }
     
+    var date: Date{
+        vehicleFuel.date!
+    }
+    
+    var fuelType: FuelType?{
+        vehicleFuel.vehicles!.fuelTypes
+    }
     
 }
 
