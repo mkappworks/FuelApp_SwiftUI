@@ -11,35 +11,20 @@ import CoreData
 @MainActor
 class VehicleFuelListViewModel: NSObject, ObservableObject{
     
+    @Published var vehicleId: String = ""
     @Published var vehicleFuels = [VehicleFuelViewModel]()
-    private let fetchedResultsController: NSFetchedResultsController<FuelTransaction>
+    @Published var vehicle: Vehicle?
+    
     private (set) var context: NSManagedObjectContext
+    
+    @Published var errorMessage: String = ""
+    @Published var isError: Bool = false
+    @Published var canPumpFuel: Bool = false
+   // private let fetchedResultsController: NSFetchedResultsController<Vehicle>
     
     init(context: NSManagedObjectContext){
         self.context = context
-        fetchedResultsController = NSFetchedResultsController(
-            fetchRequest: FuelTransaction.all,
-            managedObjectContext: context,
-            sectionNameKeyPath: nil,
-            cacheName: nil
-        )
-        
-        super.init()
-        
-        fetchedResultsController.delegate = self
-        
-        do{
-            try fetchedResultsController.performFetch()
-            
-            guard let fetchedVehicleFuels = fetchedResultsController.fetchedObjects else{
-                return
-            }
-            
-            self.vehicleFuels = fetchedVehicleFuels.map(VehicleFuelViewModel.init)
-        } catch{
-            print(error)
-        }
-
+    
     }
     
     func deleteVehicleFuel(vehicleFuelId: NSManagedObjectID){
@@ -54,6 +39,34 @@ class VehicleFuelListViewModel: NSObject, ObservableObject{
             print(error)
         }
     }
+    
+    func checkVehicleRegistered(){
+        do{
+            self.errorMessage = ""
+            
+            let request = NSFetchRequest<Vehicle>(entityName: "Vehicle")
+            request.sortDescriptors = []
+            request.predicate = NSPredicate(format: "vehicleId == %@", self.vehicleId)
+            
+            let fetchedVehicle = try context.fetch(request).first
+            
+            if(fetchedVehicle == nil){
+                self.errorMessage.append(contentsOf: "Vehicle not registered. ")
+                self.isError = true
+                self.canPumpFuel = false
+                return
+            }
+            
+            self.isError = false
+            self.canPumpFuel = true
+            self.vehicle = fetchedVehicle
+            let fuelTransaction = self.vehicle?.fuelTransactions?.allObjects as? [FuelTransaction]
+            self.vehicleFuels = fuelTransaction!.map(VehicleFuelViewModel.init)
+        }catch{
+            print(error)
+        }
+    }
+    
 }
 
 extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{
@@ -67,6 +80,7 @@ extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
+
 struct VehicleFuelViewModel: Identifiable{
     private var vehicleFuel: FuelTransaction
     
@@ -78,16 +92,20 @@ struct VehicleFuelViewModel: Identifiable{
         vehicleFuel.objectID
     }
     
-    var vehicleId: String{
-        vehicleFuel.vehicles?.vehicleId ?? ""
-    }
-    
     var date: Date{
         vehicleFuel.date!
     }
     
-    var fuelType: FuelType?{
-        vehicleFuel.vehicles!.fuelTypes
+    var pumpedAmount: Double{
+        vehicleFuel.pumpedAmount
+    }
+    
+    var vehicleId: String{
+        vehicleFuel.vehicles?.vehicleId ?? ""
+    }
+    
+    var fuelType: String{
+        vehicleFuel.vehicles?.fuelTypes?.name ?? ""
     }
     
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FuelTransaction" representedClassName="FuelTransaction" syncable="YES" codeGenerationType="class">
-        <attribute name="currentAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="pumpedAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="storages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Storage" inverseName="fuelTransactions" inverseEntity="Storage"/>
@@ -31,7 +30,7 @@
         <relationship name="quotas" maxCount="1" deletionRule="Nullify" destinationEntity="Quota" inverseName="vehicles" inverseEntity="Quota"/>
     </entity>
     <elements>
-        <element name="FuelTransaction" positionX="-576.6755981445312" positionY="53.68533325195312" width="128" height="104"/>
+        <element name="FuelTransaction" positionX="-576.6755981445312" positionY="53.68533325195312" width="128" height="89"/>
         <element name="FuelType" positionX="-360" positionY="162" width="128" height="74"/>
         <element name="Quota" positionX="45.30487060546875" positionY="171.0879974365234" width="128" height="28"/>
         <element name="Storage" positionX="-225" positionY="162" width="128" height="89"/>

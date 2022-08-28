@@ -44,7 +44,6 @@
 		5070D18528B9352B00AD90FE /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18428B9352B00AD90FE /* StorageListView.swift */; };
 		5070D18728B9358300AD90FE /* AddStorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18628B9358300AD90FE /* AddStorageView.swift */; };
 		5070D18E28B940D000AD90FE /* FuelType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */; };
-		5070D19128B9434100AD90FE /* AddStorageFuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19028B9434100AD90FE /* AddStorageFuel.swift */; };
 		5070D19328B9434B00AD90FE /* StorageFuelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19228B9434B00AD90FE /* StorageFuelListView.swift */; };
 		5070D19528B943A200AD90FE /* AddStorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19428B943A200AD90FE /* AddStorageViewModel.swift */; };
 		5070D19728B943B400AD90FE /* StorageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D19628B943B400AD90FE /* StorageListViewModel.swift */; };
@@ -55,6 +54,9 @@
 		5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */; };
 		5070D1AE28B9482200AD90FE /* FuelTypeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */; };
 		507EFAAE28BA701300D5B4F3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAAD28BA701300D5B4F3 /* SplashView.swift */; };
+		507EFAB228BAE15300D5B4F3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */; };
+		507EFAB428BB0ED600D5B4F3 /* VFLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAB328BB0ED600D5B4F3 /* VFLView.swift */; };
+		507EFAB628BB176700D5B4F3 /* AddStorageFuelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAB528BB176700D5B4F3 /* AddStorageFuelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +118,6 @@
 		5070D18428B9352B00AD90FE /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		5070D18628B9358300AD90FE /* AddStorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageView.swift; sourceTree = "<group>"; };
 		5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FuelType+Extensions.swift"; sourceTree = "<group>"; };
-		5070D19028B9434100AD90FE /* AddStorageFuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageFuel.swift; sourceTree = "<group>"; };
 		5070D19228B9434B00AD90FE /* StorageFuelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFuelListView.swift; sourceTree = "<group>"; };
 		5070D19428B943A200AD90FE /* AddStorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageViewModel.swift; sourceTree = "<group>"; };
 		5070D19628B943B400AD90FE /* StorageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListViewModel.swift; sourceTree = "<group>"; };
@@ -127,6 +128,9 @@
 		5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTypeViewModel.swift; sourceTree = "<group>"; };
 		5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListViewModel.swift; sourceTree = "<group>"; };
 		507EFAAD28BA701300D5B4F3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		507EFAB328BB0ED600D5B4F3 /* VFLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VFLView.swift; sourceTree = "<group>"; };
+		507EFAB528BB176700D5B4F3 /* AddStorageFuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStorageFuelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,7 @@
 				5070D17F28B9345600AD90FE /* Quota+Extensions.swift */,
 				5070D18128B9348500AD90FE /* Storage+Extensions.swift */,
 				5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */,
+				507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			children = (
 				5049C90928B8F51900DF0E95 /* AddVehicleFuelViewModel.swift */,
 				5049C90728B8F50500DF0E95 /* VehicleFuelListViewModel.swift */,
+				507EFAB328BB0ED600D5B4F3 /* VFLView.swift */,
 			);
 			path = VehicleFuel;
 			sourceTree = "<group>";
@@ -378,7 +384,7 @@
 		5070D18F28B9432A00AD90FE /* StorageFuel */ = {
 			isa = PBXGroup;
 			children = (
-				5070D19028B9434100AD90FE /* AddStorageFuel.swift */,
+				507EFAB528BB176700D5B4F3 /* AddStorageFuelView.swift */,
 				5070D19228B9434B00AD90FE /* StorageFuelListView.swift */,
 			);
 			path = StorageFuel;
@@ -544,7 +550,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5070D19528B943A200AD90FE /* AddStorageViewModel.swift in Sources */,
-				5070D19128B9434100AD90FE /* AddStorageFuel.swift in Sources */,
 				5070D19A28B943D800AD90FE /* AddStorageFuelViewModel.swift in Sources */,
 				5049C91028B8F57C00DF0E95 /* AddQuotaViewModel.swift in Sources */,
 				5049C91C28B8F73500DF0E95 /* AddVehicleFuelView.swift in Sources */,
@@ -554,6 +559,7 @@
 				5049C90E28B8F56100DF0E95 /* VehicleListViewModel.swift in Sources */,
 				5049C8E428B8F25200DF0E95 /* ScanButton.swift in Sources */,
 				5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */,
+				507EFAB628BB176700D5B4F3 /* AddStorageFuelView.swift in Sources */,
 				5070D18528B9352B00AD90FE /* StorageListView.swift in Sources */,
 				5070D18728B9358300AD90FE /* AddStorageView.swift in Sources */,
 				5049C90028B8F41500DF0E95 /* FuelTransaction+Extensions.swift in Sources */,
@@ -577,10 +583,12 @@
 				5049C90A28B8F51900DF0E95 /* AddVehicleFuelViewModel.swift in Sources */,
 				5070D1AA28B9478100AD90FE /* FuelTypeListView.swift in Sources */,
 				5049C8AF28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift in Sources */,
+				507EFAB228BAE15300D5B4F3 /* Date+Extensions.swift in Sources */,
 				5049C90C28B8F53D00DF0E95 /* AddVehicleViewModel.swift in Sources */,
 				5049C8FE28B8F40400DF0E95 /* View+Extensions.swift in Sources */,
 				5070D18028B9345600AD90FE /* Quota+Extensions.swift in Sources */,
 				5049C91428B8F69700DF0E95 /* AddVehicleView.swift in Sources */,
+				507EFAB428BB0ED600D5B4F3 /* VFLView.swift in Sources */,
 				5049C90828B8F50500DF0E95 /* VehicleFuelListViewModel.swift in Sources */,
 				5049C8BB28B8EA3300DF0E95 /* FuelApp_SwiftUI.xcdatamodeld in Sources */,
 				5049C91628B8F6AB00DF0E95 /* VehicleListView.swift in Sources */,
