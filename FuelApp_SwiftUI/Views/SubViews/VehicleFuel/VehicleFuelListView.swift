@@ -15,7 +15,9 @@ struct VehicleFuelListView: View {
     init(vm: VehicleFuelListViewModel){
         self.vehicleFuelListVM = vm
     }
-    
+    let vehicle_fuel_transaction:LocalizedStringKey = "vehicle_fuel_transaction"
+    let pump_fuel_to_vehicle:LocalizedStringKey = "pump_fuel_to_vehicle"
+
     private func deleteVehicleFuel(at offsets: IndexSet){
         offsets.forEach { index in
             let vehicleFuel = vehicleFuelListVM.vehicleFuels[index]
@@ -41,7 +43,7 @@ struct VehicleFuelListView: View {
             }, content: {
                 AddVehicleFuelView(vm: AddVehicleFuelViewModel(context: viewContext, vehicle: vehicleFuelListVM.vehicle!))
             })
-            .navigationTitle("Vehicle Fuel Transaction")
+            .navigationTitle(vehicle_fuel_transaction)
             .toolbar{
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     ScanButton(scannedText: $vehicleFuelListVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
@@ -49,7 +51,7 @@ struct VehicleFuelListView: View {
                         }
                     
                     if(vehicleFuelListVM.canPumpFuel){
-                        Button("Pump Fuel to Vehicle"){
+                        Button(pump_fuel_to_vehicle){
                             isPresented = true
                         }
                     }

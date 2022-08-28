@@ -31,8 +31,7 @@ struct AddVehicleView: View {
                 ScanButton(scannedText: $addVehicleVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
                 
                 if(addVehicleVM.vehicleId != ""){
-                   Text("\(vehicle_number) : \(addVehicleVM.vehicleId)")
-                    
+                   Text( "Vehicle Number : \(addVehicleVM.vehicleId)")
                     Section(select_vehicle_type){
                         Picker(select_vehicle_type, selection: $addVehicleVM.selectedQuota) {
                             ForEach(addVehicleVM.quotas, id: \.self) {(quota: QuotaViewModel) in

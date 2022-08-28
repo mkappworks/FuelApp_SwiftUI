@@ -48,3 +48,9 @@
 "vehicles" = "වාහන";
 "quota_error" = "කෝටා කිසිවක් හමු නොවීය. කරුණාකර කෝටාවක් එක් කරන්න";
 "fuel_error" = "ඉන්ධන වර්ග කිසිවක් හමු නොවීය. කරුණාකර ඉන්ධන වර්ගයක් එක් කරන්න. ";
+"enter_pumped_amount" = "පොම්ප කරන ලද ප්‍රමානය ඇතුළත් කරන්න";
+"vehicle_fuel_transaction" = "වාහන ඉන්ධන ගනුදෙනු"
+"pump_fuel_to_vehicle" = "වාහනයට ඉන්ධන පොම්ප කරන්න"
+
+"storage_fuel_transaction" = "ගබඩා ඉන්ධන ගනුදෙනු";
+"addNew_storage_fuel" = "නව ගබඩා ඉන්ධන එකතු කරන්න";

@@ -48,3 +48,9 @@
 "vehicles" = "Vehicles";
 "quota_error" = "No Quotas found. Please add a Quota";
 "fuel_error" = "No Fuel Types found. Please add a Fuel Type. ";
+"enter_pumped_amount" = "Enter Pumped Amount";
+"vehicle_fuel_transaction" = "Vehicle Fuel Transaction";
+"pump_fuel_to_vehicle" = "Pump Fuel to Vehicle";
+
+"storage_fuel_transaction" = "Storage Fuel Transaction";
+"addNew_storage_fuel" = "Add New Storage Fuel;
