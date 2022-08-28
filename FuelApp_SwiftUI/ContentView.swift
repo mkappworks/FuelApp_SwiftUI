@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
         ZStack{
@@ -17,7 +18,7 @@ struct ContentView: View {
                             Image(systemName: "house")
                             Text("Home")
                         }
-                    AnalysisView()
+                    AnalysisView(vm: AnalysisViewModel(context: viewContext))
                         .tabItem {
                             Image(systemName: "building.columns.fill")
                             Text("Analysis")
