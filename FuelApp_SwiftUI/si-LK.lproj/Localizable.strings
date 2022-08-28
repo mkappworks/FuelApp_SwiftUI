@@ -1,0 +1,56 @@
+/* 
+  Localizable.strings
+  FuelApp_SwiftUI
+
+  Created by asiri indatissa on 2022-08-28.
+  
+*/
+
+"tab_home" = "මුල් පිටුව";
+"tab_analysis" = "විශ්ලේෂණය";
+"tab_help" = "උදව්";
+
+//Common
+"common_save" = "සුරකින්න";
+
+//Home View
+"hv_vehicles" = "වාහන";
+"hv_storages" = "ගබඩා";
+"hv_storage_history" = "ගබඩා ඉන්ධන වාර්තා";
+"hv_vehicle_history" = "වාහන ඉන්ධන වාර්තා";
+"hv_fuel_types" = "ඉන්ධන වර්ග";
+"hv_quotas" = "වාහන ඉන්ධන කෝටා";
+
+//Add Fuel Type View
+"af_enter_fuel" = "ඉන්ධන වර්ගය ඇතුළත් කරන්න";
+"af_new_fuel" = "නව ඉන්ධන වර්ගය එකතු කරන්න";
+
+"fuel_type" = "ඉන්ධන වර්ගය";
+"fuel_types" = "ඉන්ධන වර්ග";
+
+"enter_vehicle_type" = "වාහන වර්ගය ඇතුළත් කරන්න";
+"enter_quota_amount" = "කෝටා ඇතුලත් කරන්න";
+"add_new_quota" = "නව කෝටා ඇතුලත් කරන්න";
+
+"quotas" = "කෝටා";
+"select_fuel_type" = "ඉන්ධන වර්ගය තෝරන්න";
+"enter_storage_capacity" = "ගබඩා ධාරිතාව ඇතුලත් කරන්න";
+
+"storages" = "ගබඩා";
+"add_new_storage" = "නව ගබඩාව එක් කරන්න";
+
+"scan_vehicle_number" = "වාහන අංකය ස්කැන් කරන්න";
+"vehicle_number" = "වාහන අංකය";
+"select_vehicle_type" = "වාහනයේ වර්ගය තෝරන්න";
+"add_new_vehicle" = "නව වාහනයක් එක් කරන්න";
+"ok" = "හරි";
+
+"vehicles" = "වාහන";
+"quota_error" = "කෝටා කිසිවක් හමු නොවීය. කරුණාකර කෝටාවක් එක් කරන්න";
+"fuel_error" = "ඉන්ධන වර්ග කිසිවක් හමු නොවීය. කරුණාකර ඉන්ධන වර්ගයක් එක් කරන්න. ";
+"enter_pumped_amount" = "පොම්ප කරන ලද ප්‍රමානය ඇතුළත් කරන්න";
+"vehicle_fuel_transaction" = "වාහන ඉන්ධන ගනුදෙනු"
+"pump_fuel_to_vehicle" = "වාහනයට ඉන්ධන පොම්ප කරන්න"
+
+"storage_fuel_transaction" = "ගබඩා ඉන්ධන ගනුදෙනු";
+"addNew_storage_fuel" = "නව ගබඩා ඉන්ධන එකතු කරන්න";

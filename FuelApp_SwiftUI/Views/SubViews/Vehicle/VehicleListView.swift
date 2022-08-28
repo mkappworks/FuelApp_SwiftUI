@@ -12,6 +12,9 @@ struct VehicleListView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject private var vehicleListVM: VehicleListViewModel
     
+    let vehicles:LocalizedStringKey = "vehicles"
+    let add_new_vehicle:LocalizedStringKey = "add_new_vehicle"
+
     init(vm: VehicleListViewModel){
         self.vehicleListVM = vm
     }
@@ -43,10 +46,10 @@ struct VehicleListView: View {
             }, content: {
                 AddVehicleView(vm: AddVehicleViewModel(context: viewContext))
             })
-            .navigationTitle("Vehicles")
+            .navigationTitle(vehicles)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add New Vehicle"){
+                    Button(add_new_vehicle){
                         isPresented = true
                     }
                 }

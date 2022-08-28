@@ -15,18 +15,22 @@ struct AddStorageFuelView: View {
     init(vm: AddStorageFuelViewModel){
         self.addStorageFuelVM = vm
     }
-    
+    let enter_pumped_amount:LocalizedStringKey = "enter_pumped_amount"
+    let ok:LocalizedStringKey = "ok"
+    let common_save:LocalizedStringKey = "common_save"
+    let addNew_storage_fuel:LocalizedStringKey = "addNew_storage_fuel"
+
     var body: some View {
         VStack{
             Form{
                 Text("Fuel Type : \(addStorageFuelVM.fuelTypeName)")
                 
-                Section("Enter Pumped Amount"){
-                    TextField("Enter Pumped Amount", value: $addStorageFuelVM.pumpedAmount, formatter: NumberFormatter())
+                Section(enter_pumped_amount){
+                    TextField(enter_pumped_amount, value: $addStorageFuelVM.pumpedAmount, formatter: NumberFormatter())
                         .keyboardType(.decimalPad)
                 }
                 
-                Button("Save"){
+                Button(common_save){
                     addStorageFuelVM.save()
                     if(addStorageFuelVM.isError == false){
                         presentationMode.wrappedValue.dismiss()
@@ -34,11 +38,11 @@ struct AddStorageFuelView: View {
                    
                 }
                 .centerHorizontally()
-                .navigationTitle("Add New Storage Fuel")
+                .navigationTitle(addNew_storage_fuel)
             }
         }
         .alert(addStorageFuelVM.errorMessage, isPresented: $addStorageFuelVM.isError) {
-            Button("OK", role: .cancel) {
+            Button(ok, role: .cancel) {
                 if(addStorageFuelVM.isCloseView){
                     presentationMode.wrappedValue.dismiss()
                 }

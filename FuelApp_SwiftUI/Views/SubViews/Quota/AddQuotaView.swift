@@ -11,23 +11,30 @@ struct AddQuotaView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var addQuotaVM: AddQuotaViewModel
     
+    let enter_vehicle_type:LocalizedStringKey = "enter_vehicle_type"
+    let enter_quota_amount:LocalizedStringKey = "enter_quota_amount"
+    let common_save:LocalizedStringKey = "common_save"
+    let add_new_quota:LocalizedStringKey = "add_new_quota"
+    
     init(vm: AddQuotaViewModel){
         self.addQuotaVM = vm
     }
     
     var body: some View {
         Form{
-            TextField("Enter Vehicle Type", text: $addQuotaVM.vehicleType)
+            TextField("enter_vehicle_type", text: $addQuotaVM.vehicleType)
             
-            TextField("Enter Quota Amount", value: $addQuotaVM.quotaAmount, formatter: NumberFormatter())
+            TextField("enter_quota_amount", value: $addQuotaVM.quotaAmount, formatter: NumberFormatter())
                 .keyboardType(.decimalPad)
+
             
-            Button("Save"){
+            Button("common_save"){
                 addQuotaVM.save()
                 presentationMode.wrappedValue.dismiss()
+
             }
             .centerHorizontally()
-            .navigationTitle("Add New Quota")
+            .navigationTitle("add_new_quota")
         }
     }
 }

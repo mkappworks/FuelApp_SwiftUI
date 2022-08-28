@@ -11,7 +11,8 @@ struct HelpView: View {
     @State private var pageIndex = 0
     private let pages: [PageModel] = PageModel.helpPages
     private let dotAppearance = UIPageControl.appearance()
-    
+    let tab_help:LocalizedStringKey = "tab_help"
+
     var body: some View {
         ZStack {
             NavigationView {
@@ -26,7 +27,7 @@ struct HelpView: View {
                         
                     }
                 }
-                .navigationTitle("Help")
+                .navigationTitle(tab_help)
                 
             }
             .animation(.easeInOut, value: pageIndex)

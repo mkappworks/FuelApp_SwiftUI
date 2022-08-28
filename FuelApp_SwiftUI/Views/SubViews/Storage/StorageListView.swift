@@ -15,6 +15,8 @@ struct StorageListView: View {
     init(vm: StorageListViewModel){
         self.storageListVM = vm
     }
+    let hv_storages:LocalizedStringKey = "hv_storages"
+    let add_new_storage:LocalizedStringKey = "add_new_storage"
     
     private func deleteStorage(at offsets: IndexSet){
         offsets.forEach { index in
@@ -43,10 +45,10 @@ struct StorageListView: View {
             }, content: {
                 AddStorageView(vm: AddStorageViewModel(context: viewContext))
             })
-            .navigationTitle("Storages")
+            .navigationTitle(hv_storages)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add New storage"){
+                    Button(add_new_storage){
                         isPresented = true
                     }
                 }

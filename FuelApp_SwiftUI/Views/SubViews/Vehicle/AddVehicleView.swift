@@ -15,6 +15,15 @@ struct AddVehicleView: View {
         self.addVehicleVM = vm
     }
     
+    let scan_vehicle_number:LocalizedStringKey = "scan_vehicle_number"
+    let vehicle_number:LocalizedStringKey = "vehicle_number"
+    let select_vehicle_type:LocalizedStringKey = "select_vehicle_type"
+    let select_fuel_type:LocalizedStringKey = "select_fuel_type"
+    let common_save:LocalizedStringKey = "common_save"
+    let add_new_vehicle:LocalizedStringKey = "add_new_vehicle"
+    let ok:LocalizedStringKey = "ok"
+
+    
     var body: some View {
         
         VStack{
@@ -22,10 +31,9 @@ struct AddVehicleView: View {
                 ScanButton(scannedText: $addVehicleVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
                 
                 if(addVehicleVM.vehicleId != ""){
-                    Text("Vehicle Number : \(addVehicleVM.vehicleId)")
-                    
-                    Section("Select Vehicle Type"){
-                        Picker("Select Vehicle Type", selection: $addVehicleVM.selectedQuota) {
+                   Text( "Vehicle Number : \(addVehicleVM.vehicleId)")
+                    Section(select_vehicle_type){
+                        Picker(select_vehicle_type, selection: $addVehicleVM.selectedQuota) {
                             ForEach(addVehicleVM.quotas, id: \.self) {(quota: QuotaViewModel) in
                                 Text(quota.vehicleType.uppercased())
                                     .tag(quota as QuotaViewModel?)
@@ -37,8 +45,8 @@ struct AddVehicleView: View {
                         .pickerStyle(.wheel)
                     }
                     
-                    Section("Select Fuel Type"){
-                        Picker("Select Fuel Type", selection: $addVehicleVM.selectedFuelType) {
+                    Section(select_fuel_type){
+                        Picker(select_fuel_type, selection: $addVehicleVM.selectedFuelType) {
                             ForEach(addVehicleVM.fuelTypes, id: \.self)  {(fuelType: FuelTypeViewModel) in
                                 Text(fuelType.name.uppercased())
                                     .tag(fuelType as FuelTypeViewModel?)
@@ -50,18 +58,19 @@ struct AddVehicleView: View {
                         .pickerStyle(.wheel)
                     }
                     
-                    Button("Save"){
+                    Button(common_save){
                         addVehicleVM.save()
                         presentationMode.wrappedValue.dismiss()
+
                     }
                     .centerHorizontally()
-                    .navigationTitle("Add New Vehicle")
+                    .navigationTitle(add_new_vehicle)
                 }
                 
             }
         }
         .alert(addVehicleVM.errorMessage, isPresented: $addVehicleVM.isError) {
-            Button("OK", role: .cancel) {
+            Button(ok, role: .cancel) {
                 presentationMode.wrappedValue.dismiss()
             }
         }

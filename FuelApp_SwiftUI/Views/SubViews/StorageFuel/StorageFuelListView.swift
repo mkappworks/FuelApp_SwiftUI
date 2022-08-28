@@ -15,7 +15,9 @@ struct StorageFuelListView: View {
     init(vm: StorageFuelListViewModel){
         self.storageFuelListVM = vm
     }
-    
+    let storage_fuel_transaction:LocalizedStringKey = "storage_fuel_transaction"
+    let ok:LocalizedStringKey = "ok"
+
     private func deleteStorageFuel(at offsets: IndexSet){
         offsets.forEach { index in
             let storageFuel = storageFuelListVM.storageFuels[index]
@@ -53,7 +55,7 @@ struct StorageFuelListView: View {
                     
                 }
             }
-            .navigationTitle("Storage Fuel Transaction")
+            .navigationTitle(storage_fuel_transaction)
             .toolbar{
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     if(storageFuelListVM.storages.count > 0){
@@ -71,7 +73,7 @@ struct StorageFuelListView: View {
             })
         }
         .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
-            Button("OK", role: .cancel) {
+            Button(ok, role: .cancel) {
                 //dismiss alert
             }
             

@@ -12,6 +12,9 @@ struct QuotaListView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject private var quotaListVM: QuotaListViewModel
     
+    let quotas:LocalizedStringKey = "quotas"
+    let add_new_quota:LocalizedStringKey = "add_new_quota"
+    
     init(vm: QuotaListViewModel){
         self.quotaListVM = vm
     }
@@ -40,10 +43,10 @@ struct QuotaListView: View {
             }, content: {
                 AddQuotaView(vm: AddQuotaViewModel(context: viewContext))
             })
-            .navigationTitle("Quotas")
+            .navigationTitle(quotas)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add New Quota"){
+                    Button(add_new_quota){
                         isPresented = true
                     }
                 }
