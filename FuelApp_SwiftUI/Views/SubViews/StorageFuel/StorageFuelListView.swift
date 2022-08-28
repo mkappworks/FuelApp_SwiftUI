@@ -26,7 +26,6 @@ struct StorageFuelListView: View {
     }
     
     var body: some View {
-        
         NavigationView{
             VStack{
                 Section("Select Storage"){

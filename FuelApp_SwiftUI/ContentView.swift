@@ -12,6 +12,7 @@ struct ContentView: View {
     let tab_analysis:LocalizedStringKey = "tab_analysis"
     let tab_help:LocalizedStringKey = "tab_help"
 
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
         ZStack{
@@ -21,7 +22,7 @@ struct ContentView: View {
                             Image(systemName: "house")
                             Text(tab_home)
                         }
-                    AnalysisView()
+                    AnalysisView(vm: AnalysisViewModel(context: viewContext))
                         .tabItem {
                             Image(systemName: "building.columns.fill")
                             Text(tab_analysis)

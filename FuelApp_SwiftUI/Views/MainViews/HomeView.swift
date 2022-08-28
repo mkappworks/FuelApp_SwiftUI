@@ -19,7 +19,7 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 75){
+            VStack(alignment: .center, spacing: 75){
                 
                 NavigationLink( destination: VehicleListView(vm: VehicleListViewModel(context: viewContext)) ){
                     Text(hv_vehicles)
