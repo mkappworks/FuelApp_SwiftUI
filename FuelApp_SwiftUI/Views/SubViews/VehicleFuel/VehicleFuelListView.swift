@@ -45,9 +45,7 @@ struct VehicleFuelListView: View {
             .toolbar{
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     ScanButton(scannedText: $vehicleFuelListVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
-                        .onChange(of: vehicleFuelListVM.vehicleId) {newvalue in
-                            print("check registered")
-                            vehicleFuelListVM.checkVehicleRegistered()
+                        .onChange(of: vehicleFuelListVM.vehicleId) {newvalue in                            vehicleFuelListVM.checkVehicleRegistered()
                         }
                     
                     if(vehicleFuelListVM.canPumpFuel){
