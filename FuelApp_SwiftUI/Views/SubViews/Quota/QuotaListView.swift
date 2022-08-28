@@ -27,7 +27,6 @@ struct QuotaListView: View {
     }
     
     var body: some View {
-        NavigationView{
             VStack{
                 List{
                     ForEach(quotaListVM.quotas){quota in
@@ -51,7 +50,6 @@ struct QuotaListView: View {
                     }
                 }
             }
-        }
     }
 }
 

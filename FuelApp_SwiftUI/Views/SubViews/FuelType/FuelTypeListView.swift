@@ -30,7 +30,6 @@ struct FuelTypeListView: View {
     }
     
     var body: some View {
-        NavigationView{
             VStack{
                 List{
                     ForEach(fuelTypeListVM.fuelTypes){fuelType in
@@ -54,7 +53,6 @@ struct FuelTypeListView: View {
                 }
             }
         }
-    }
 }
 
 struct FuelTypeListView_Previews: PreviewProvider {

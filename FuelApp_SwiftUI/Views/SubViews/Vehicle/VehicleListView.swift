@@ -14,7 +14,7 @@ struct VehicleListView: View {
     
     let vehicles:LocalizedStringKey = "vehicles"
     let add_new_vehicle:LocalizedStringKey = "add_new_vehicle"
-
+    
     init(vm: VehicleListViewModel){
         self.vehicleListVM = vm
     }
@@ -27,34 +27,34 @@ struct VehicleListView: View {
     }
     
     var body: some View {
-        NavigationView{
-            VStack{
-                List{
-                    ForEach(vehicleListVM.vehicles){vehicle in
-                        VStack(alignment: .leading){
-                            Text("Vehicle Number : \(vehicle.vehicleId)")
-                            Text("Registered Date : \(vehicle.date, style: .date)")
-                            Text("Vehicle Type : \(vehicle.vehicleType.uppercased())")
-                            Text("Fuel Type : \(vehicle.fuelType.uppercased())")
-                        }
+        
+        VStack{
+            List{
+                ForEach(vehicleListVM.vehicles){vehicle in
+                    VStack(alignment: .leading){
+                        Text("Vehicle Number : \(vehicle.vehicleId)")
+                        Text("Registered Date : \(vehicle.date, style: .date)")
+                        Text("Vehicle Type : \(vehicle.vehicleType.uppercased())")
+                        Text("Fuel Type : \(vehicle.fuelType.uppercased())")
                     }
-                    .onDelete(perform: deleteVehicle)
                 }
+                .onDelete(perform: deleteVehicle)
             }
-            .sheet(isPresented: $isPresented, onDismiss: {
-                //dismiss
-            }, content: {
-                AddVehicleView(vm: AddVehicleViewModel(context: viewContext))
-            })
-            .navigationTitle(vehicles)
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(add_new_vehicle){
-                        isPresented = true
-                    }
+        }
+        .sheet(isPresented: $isPresented, onDismiss: {
+            //dismiss
+        }, content: {
+            AddVehicleView(vm: AddVehicleViewModel(context: viewContext))
+        })
+        .navigationTitle(vehicles)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(add_new_vehicle){
+                    isPresented = true
                 }
             }
         }
+        
     }
 }
 

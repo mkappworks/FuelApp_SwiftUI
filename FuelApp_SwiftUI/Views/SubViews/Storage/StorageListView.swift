@@ -26,7 +26,6 @@ struct StorageListView: View {
     }
     
     var body: some View {
-        NavigationView{
             VStack{
                 List{
                     ForEach(storageListVM.storages){storage in
@@ -53,7 +52,6 @@ struct StorageListView: View {
                     }
                 }
             }
-        }
     }
 }
 

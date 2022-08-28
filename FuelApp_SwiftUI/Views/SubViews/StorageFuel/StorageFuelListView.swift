@@ -26,7 +26,6 @@ struct StorageFuelListView: View {
     }
     
     var body: some View {
-        NavigationView{
             VStack{
                 Section("Select Storage"){
                     Picker("Select Storage", selection: $storageFuelListVM.selectedStorage) {
@@ -71,13 +70,13 @@ struct StorageFuelListView: View {
             }, content: {
                 AddStorageFuelView(vm: AddStorageFuelViewModel(context: viewContext, storage: storageFuelListVM.storage!))
             })
+            .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
+                Button(ok, role: .cancel) {
+                    //dismiss alert
+                }
         }
-        .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
-            Button(ok, role: .cancel) {
-                //dismiss alert
-            }
+    
             
-        }
     }
 }
 

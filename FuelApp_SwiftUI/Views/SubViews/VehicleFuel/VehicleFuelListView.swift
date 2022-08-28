@@ -26,7 +26,6 @@ struct VehicleFuelListView: View {
     }
     
     var body: some View {
-        NavigationView{
             VStack{
                 List{
                     ForEach(vehicleFuelListVM.vehicleFuels){vehicleFuel in
@@ -63,10 +62,6 @@ struct VehicleFuelListView: View {
                     //dismiss alert
                 }
             }
-            
-            
-            
-        }
     }
 }
 
