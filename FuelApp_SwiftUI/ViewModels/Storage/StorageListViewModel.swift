@@ -39,7 +39,7 @@ class StorageListViewModel: NSObject, ObservableObject{
         } catch{
             print(error)
         }
-
+        
     }
     
     func deleteStorage(storageId: NSManagedObjectID){
@@ -67,7 +67,7 @@ extension StorageListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct StorageViewModel: Identifiable{
+struct StorageViewModel: Identifiable, Hashable{
     private var storage: Storage
     
     init(storage: Storage){
@@ -85,10 +85,8 @@ struct StorageViewModel: Identifiable{
     var currentAmount: Double{
         storage.currentAmount
     }
-    
     var fuelType: String{
         storage.fuelTypes?.name ?? ""
     }
-    
     
 }
