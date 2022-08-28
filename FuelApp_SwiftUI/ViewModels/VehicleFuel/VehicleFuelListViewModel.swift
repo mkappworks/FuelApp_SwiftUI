@@ -9,20 +9,22 @@ import Foundation
 import CoreData
 
 @MainActor
-class VehicleFuelListViewModel: ObservableObject{
+class VehicleFuelListViewModel: NSObject, ObservableObject{
     
     @Published var vehicleId: String = ""
     @Published var vehicleFuels = [VehicleFuelViewModel]()
     @Published var vehicle: Vehicle?
+    
     private (set) var context: NSManagedObjectContext
     
     @Published var errorMessage: String = ""
     @Published var isError: Bool = false
     @Published var canPumpFuel: Bool = false
+   // private let fetchedResultsController: NSFetchedResultsController<Vehicle>
     
     init(context: NSManagedObjectContext){
         self.context = context
-        
+    
     }
     
     func deleteVehicleFuel(vehicleFuelId: NSManagedObjectID){
@@ -58,12 +60,24 @@ class VehicleFuelListViewModel: ObservableObject{
             self.isError = false
             self.canPumpFuel = true
             self.vehicle = fetchedVehicle
-            
+            let fuelTransaction = self.vehicle?.fuelTransactions?.allObjects as? [FuelTransaction]
+            self.vehicleFuels = fuelTransaction!.map(VehicleFuelViewModel.init)
         }catch{
             print(error)
         }
     }
     
+}
+
+extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let fetchedVehicleFuels = controller.fetchedObjects as? [FuelTransaction] else{
+            return
+        }
+        
+        self.vehicleFuels = fetchedVehicleFuels.map(VehicleFuelViewModel.init)
+        
+    }
 }
 
 

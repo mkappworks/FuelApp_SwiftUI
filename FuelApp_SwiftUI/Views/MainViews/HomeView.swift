@@ -26,7 +26,7 @@ struct HomeView: View {
                     Text("View Vehicle Fuel History")
                 }
                 
-                NavigationLink( destination: StorageFuelListView() ){
+                NavigationLink( destination: StorageFuelListView(vm: StorageFuelListViewModel(context: viewContext)) ){
                     Text("View Storage Fuel History")
                 }
                 
