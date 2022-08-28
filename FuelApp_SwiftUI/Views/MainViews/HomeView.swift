@@ -23,28 +23,33 @@ struct HomeView: View {
                 
                 NavigationLink( destination: VehicleListView(vm: VehicleListViewModel(context: viewContext)) ){
                     Text(hv_vehicles)
+                        .font(.system(size: 20))
                 }
                 
                 NavigationLink( destination: StorageListView(vm: StorageListViewModel(context: viewContext)) ){
                     Text(hv_storages)
+                        .font(.system(size: 20))
                 }
-                
-
+            
                 NavigationLink( destination: VehicleFuelListView(vm: VehicleFuelListViewModel(context: viewContext)) ){
                     Text(hv_vehicle_history)
+                        .font(.system(size: 20))
                 }
                              
                 NavigationLink( destination: StorageFuelListView(vm: StorageFuelListViewModel(context: viewContext)) ){
                     Text(hv_storage_history)
+                        .font(.system(size: 20))
                 }
                 
                 NavigationLink( destination: FuelTypeListView(vm: FuelTypeListViewModel(context: viewContext)) ){
                     Text(hv_fuel_types)
+                        .font(.system(size: 20))
                 }
                 
                 
                 NavigationLink( destination: QuotaListView(vm: QuotaListViewModel(context: viewContext)) ){
                     Text(hv_quotas)
+                        .font(.system(size: 20))
                 }
                 
             }
