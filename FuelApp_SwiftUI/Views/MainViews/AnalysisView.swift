@@ -35,6 +35,9 @@ struct AnalysisView: View {
                         
                     }
                     
+                    Text("Current Amount in \(analysisVM.selectedStorage!.fuelType) : \(analysisVM.selectedStorage!.currentAmount, specifier: "%.2f")")
+
+                    
                     DatePicker("Select Start Date", selection: $analysisVM.startDate, in: ...Date(), displayedComponents: .date )
                         .onChange(of: analysisVM.startDate) {newvalue in                              analysisVM.getFuelTransactions()
                         }
