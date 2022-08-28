@@ -16,8 +16,8 @@
 //Home View
 "hv_vehicles" = "View Vehicles";
 "hv_storages" = "View Storages";
-"hv_storage_history" = "View Vehicle Fuel History";
-"hv_vehicle_history" = "View Storage Fuel History";
+"hv_storage_history" = "View Storage Fuel History";
+"hv_vehicle_history" = "View Vehicle Fuel History";
 "hv_fuel_types" = "View Fuel Types";
 "hv_quotas" = "View Vehicle Quotas";
 

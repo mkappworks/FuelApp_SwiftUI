@@ -16,8 +16,8 @@
 //Home View
 "hv_vehicles" = "වාහන";
 "hv_storages" = "ගබඩා";
-"hv_storage_history" = "වාහන ඉන්ධන වාර්තා";
-"hv_vehicle_history" = "ගබඩා ඉන්ධන වාර්තා";
+"hv_storage_history" = "ගබඩා ඉන්ධන වාර්තා";
+"hv_vehicle_history" = "වාහන ඉන්ධන වාර්තා";
 "hv_fuel_types" = "ඉන්ධන වර්ග";
 "hv_quotas" = "වාහන ඉන්ධන කෝටා";
 
