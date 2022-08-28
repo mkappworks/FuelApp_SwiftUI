@@ -20,13 +20,13 @@ struct AddQuotaView: View {
             TextField("Enter Vehicle Type", text: $addQuotaVM.vehicleType)
             
             TextField("Enter Quota Amount", value: $addQuotaVM.quotaAmount, formatter: NumberFormatter())
-            .keyboardType(.decimalPad)
+                .keyboardType(.decimalPad)
             
             Button("Save"){
                 addQuotaVM.save()
                 presentationMode.wrappedValue.dismiss()
-            }.centerHorizontally()
-            
+            }
+            .centerHorizontally()
             .navigationTitle("Add New Quota")
         }
     }
