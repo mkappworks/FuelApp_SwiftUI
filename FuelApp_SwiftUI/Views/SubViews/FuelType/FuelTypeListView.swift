@@ -12,6 +12,12 @@ struct FuelTypeListView: View {
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject private var fuelTypeListVM: FuelTypeListViewModel
     
+    let af_enter_fuel:LocalizedStringKey = "af_enter_fuel"
+    let fuel_type:LocalizedStringKey = "fuel_type"
+    let fuel_types:LocalizedStringKey = "fuel_types"
+
+    let af_new_fuel:LocalizedStringKey = "af_new_fuel"
+    
     init(vm: FuelTypeListViewModel){
         self.fuelTypeListVM = vm
     }
@@ -39,10 +45,10 @@ struct FuelTypeListView: View {
             }, content: {
                 AddFuelTypeView(vm: AddFuelTypeViewModel(context: viewContext))
             })
-            .navigationTitle("Fuel Types")
+            .navigationTitle(fuel_types)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add New Fuel Type"){
+                    Button(af_new_fuel){
                         isPresented = true
                     }
                 }

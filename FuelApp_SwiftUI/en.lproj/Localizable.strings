@@ -5,4 +5,44 @@
   Created by asiri indatissa on 2022-08-28.
   
 */
-"tab_home" = "Home"
+//Tabs
+"tab_home" = "Home";
+"tab_analysis" = "Analysis";
+"tab_help" = "Help";
+
+//Common
+"common_save" = "Save";
+
+//Home View
+"hv_vehicles" = "View Vehicles";
+"hv_storages" = "View Storages";
+"hv_storage_history" = "View Vehicle Fuel History";
+"hv_vehicle_history" = "View Storage Fuel History";
+"hv_fuel_types" = "View Fuel Types";
+"hv_quotas" = "View Vehicle Quotas";
+
+//Add Fuel Type View
+"af_enter_fuel" = "Enter Fuel Type";
+"af_new_fuel" = "Add New Fuel Type";
+
+"fuel_type" = "Fuel Type";
+"fuel_types" = "Fuel Types";
+
+"enter_vehicle_type" = "Enter Vehicle Type";
+"enter_quota_amount" = "Enter Quota Amount";
+"add_new_quota" = "Add New Quota";
+
+"quotas" = "Quotas";
+"select_fuel_type" = "Select Fuel Type";
+"enter_storage_capacity" = "Enter Storage Capacity";
+
+"storages" = "Storages";
+"add_new_storage" = "Add New storage";
+
+"scan_vehicle_number" = "Scan Vehicle Number";
+"vehicle_number" = "Vehicle Number";
+"select_vehicle_type" = "Select Vehicle Type";
+"add_new_vehicle" = "Add New Vehicle";
+"ok" = "OK";
+
+"vehicles" = "Vehicles";

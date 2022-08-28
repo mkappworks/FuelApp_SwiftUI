@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B907C9528BB38E500D92400 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B907C9728BB38E500D92400 /* Localizable.strings */; };
 		5049C8AF28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8AE28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift */; };
 		5049C8B128B8EA3200DF0E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5049C8B028B8EA3200DF0E95 /* ContentView.swift */; };
 		5049C8B328B8EA3300DF0E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5049C8B228B8EA3300DF0E95 /* Assets.xcassets */; };
@@ -74,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B907C9628BB38E500D92400 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B907C9828BB38ED00D92400 /* si-LK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "si-LK"; path = "si-LK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5049C8AB28B8EA3200DF0E95 /* FuelApp_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelApp_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5049C8AE28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelApp_SwiftUIApp.swift; sourceTree = "<group>"; };
 		5049C8B028B8EA3200DF0E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				5049C8E028B8F21800DF0E95 /* ViewModels */,
 				5049C8AE28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift */,
 				5049C8B028B8EA3200DF0E95 /* ContentView.swift */,
+				4B907C9728BB38E500D92400 /* Localizable.strings */,
 				507EFAAD28BA701300D5B4F3 /* SplashView.swift */,
 				5049C8B228B8EA3300DF0E95 /* Assets.xcassets */,
 				5049C8B928B8EA3300DF0E95 /* FuelApp_SwiftUI.xcdatamodeld */,
@@ -493,6 +497,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"si-LK",
 			);
 			mainGroup = 5049C8A228B8EA3200DF0E95;
 			productRefGroup = 5049C8AC28B8EA3200DF0E95 /* Products */;
@@ -512,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5049C8B628B8EA3300DF0E95 /* Preview Assets.xcassets in Resources */,
+				4B907C9528BB38E500D92400 /* Localizable.strings in Resources */,
 				5049C8B328B8EA3300DF0E95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +619,18 @@
 			targetProxy = 5049C8CB28B8EA3400DF0E95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B907C9728BB38E500D92400 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B907C9628BB38E500D92400 /* en */,
+				4B907C9828BB38ED00D92400 /* si-LK */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5049C8D228B8EA3400DF0E95 /* Debug */ = {

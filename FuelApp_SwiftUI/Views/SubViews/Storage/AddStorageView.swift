@@ -15,12 +15,17 @@ struct AddStorageView: View {
         self.addStorageVM = vm
     }
     
+    let select_fuel_type:LocalizedStringKey = "select_fuel_type"
+    let enter_storage_capacity:LocalizedStringKey = "enter_storage_capacity"
+    let common_save:LocalizedStringKey = "common_save"
+    let af_new_fuel:LocalizedStringKey = "af_new_fuel"
+
     var body: some View {
         
         VStack{
             Form{
-                Section("Select Fuel Type"){
-                    Picker("Select Fuel Type", selection: $addStorageVM.selectedFuelType) {
+                Section(select_fuel_type){
+                    Picker(select_fuel_type, selection: $addStorageVM.selectedFuelType) {
                         ForEach(addStorageVM.fuelTypes, id: \.self)  {(fuelType: FuelTypeViewModel) in
                             Text(fuelType.name.uppercased())
                                 .tag(fuelType as FuelTypeViewModel?)
@@ -31,17 +36,17 @@ struct AddStorageView: View {
                     .frame(height: 75)
                     .pickerStyle(.wheel)
                 }
-                Section("Enter Storage Capacity"){
-                    TextField("Enter Storage Capacity", value: $addStorageVM.storageCapacity, formatter: NumberFormatter())
+                Section(enter_storage_capacity){
+                    TextField(enter_storage_capacity, value: $addStorageVM.storageCapacity, formatter: NumberFormatter())
                         .keyboardType(.decimalPad)
                 }
                 
-                Button("Save"){
+                Button(common_save){
                     addStorageVM.save()
                     presentationMode.wrappedValue.dismiss()
                 }.centerHorizontally()
                 
-                    .navigationTitle("Add New FuelType")
+                    .navigationTitle(af_new_fuel)
                 
             }
         }

@@ -11,21 +11,25 @@ struct AddFuelTypeView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var addFuelTypeVM: AddFuelTypeViewModel
     
+    let af_enter_fuel:LocalizedStringKey = "af_enter_fuel"
+    let common_save:LocalizedStringKey = "common_save"
+    let af_new_fuel:LocalizedStringKey = "af_new_fuel"
+
     init(vm: AddFuelTypeViewModel){
         self.addFuelTypeVM = vm
     }
     
     var body: some View {
         Form{
-            TextField("Enter Fuel Type", text: $addFuelTypeVM.name)
+            TextField(af_enter_fuel, text: $addFuelTypeVM.name)
             
             
-            Button("Save"){
+            Button(common_save){
                 addFuelTypeVM.save()
                 presentationMode.wrappedValue.dismiss()
             }.centerHorizontally()
             
-            .navigationTitle("Add New Fuel Type")
+            .navigationTitle(af_new_fuel)
         }
     }
 }
