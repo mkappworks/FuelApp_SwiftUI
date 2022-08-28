@@ -6,15 +6,44 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddVehicleFuelView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject private var addVehicleFuelVM: AddVehicleFuelViewModel
+    
+    init(vm: AddVehicleFuelViewModel){
+        self.addVehicleFuelVM = vm
+    }
+    
     var body: some View {
-        Text("Add Vehicle Fuel View")
+        VStack{
+            Form{
+                Text("Vehicle Number : \(addVehicleFuelVM.vehicleId)")
+                
+                Section("Enter Pumped Amount"){
+                    TextField("Enter Pumped Amount", value: $addVehicleFuelVM.pumpedAmount, formatter: NumberFormatter())
+                        .keyboardType(.decimalPad)
+                }
+                
+                Button("Save"){
+                    addVehicleFuelVM.save()
+                    if(addVehicleFuelVM.isError == false){
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                   
+                }
+                .centerHorizontally()
+                .navigationTitle("Add New Vehicle")
+            }
+        }
+        .alert(addVehicleFuelVM.errorMessage, isPresented: $addVehicleFuelVM.isError) {
+            Button("OK", role: .cancel) {
+                if(addVehicleFuelVM.isCloseView){
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+        }
     }
-}
-
-struct AddVehicleFuelView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddVehicleFuelView()
-    }
+    
 }

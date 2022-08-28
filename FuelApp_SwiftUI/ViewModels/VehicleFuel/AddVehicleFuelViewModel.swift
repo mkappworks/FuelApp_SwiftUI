@@ -8,92 +8,112 @@
 import Foundation
 import CoreData
 
+@MainActor
 class AddVehicleFuelViewModel:   ObservableObject{
     @Published var vehicleId: String = ""
-    @Published var date: Date =  Date.now
     @Published var pumpedAmount: Double = 0.0
     
-    @Published var isVehicleRegistered: Bool =  true
-    @Published var hasVehicleExccededQuota: Bool = false
+    @Published var isCloseView: Bool = false
+    @Published var errorMessage: String = ""
+    @Published var isError: Bool = false
     
-    private var vehicle = [VehicleViewModel]()
-    private var quotas = [QuotaViewModel]()
-    private var vehicles = [VehicleViewModel]()
-    private var vehicleFuels = [VehicleFuelViewModel]()
-    
-    
+    private var vehicle: Vehicle
+    private var quota: Quota?
+    private var storage: Storage?
+    private var totalPumpedAmount: Double = 0.0
     
     var context: NSManagedObjectContext
- 
     
-    init(context: NSManagedObjectContext){
+    init(context: NSManagedObjectContext, vehicle: Vehicle){
         self.context = context
+        self.vehicle = vehicle
         
-        self.isVehicleIdInCoreDate()
+        self.vehicleId = vehicle.vehicleId ?? ""
         
-        if(!self.isVehicleRegistered){return}
+        self.quota = self.vehicle.quotas
+        self.storage = self.vehicle.fuelTypes?.storages
         
-//        self.getVehicle()
-//
-//        self.getQuota()
-//
-//        self.getVehicleFuel()
+        calculateTotalPumpedAmountInVehicle()
     }
     
-//    func save(){
-//        do{
-//            let vehicleFuel = VehicleFuelTransaction(context: context)
-//            vehicleFuel.vehicleId = vehicleId
-//
-//            try vehicleFuel.save()
-//        } catch{
-//            print(error)
-//        }
-//    }
-
-    private func isVehicleIdInCoreDate(){
-        self.getVehicle()
-        
-        self.isVehicleRegistered = vehicles.contains(where: {$0.vehicleId == self.vehicleId})
-    }
-    
-    private func getQuota(){
+    func save(){
         do{
-            let request = NSFetchRequest<Quota>(entityName: "Quota")
-
-            let fetchedQuotas = try context.fetch(request)
-
-            self.quotas = fetchedQuotas.map(QuotaViewModel.init)
-        }catch{
+            self.errorMessage = ""
+            
+            let newTotalPumpedValueToVehicle = self.totalPumpedAmount + self.pumpedAmount
+            
+            if(newTotalPumpedValueToVehicle > self.quota!.quotaAmount){
+                errorMessage.append(contentsOf: "This vehicle has exceeded the montly quota limit. ")
+                isError = true
+                pumpedAmount = 0
+                return
+            }
+            
+            let newCurrentValueInStorage = self.storage!.currentAmount - self.pumpedAmount
+            
+            
+            if(newCurrentValueInStorage < 0){
+                errorMessage.append(contentsOf: "Pumped Amount entered exceeds the fuel remaining in the storage. ")
+                isError = true
+                pumpedAmount = 0
+                return
+            }
+            
+            let vehicleFuel = FuelTransaction(context: context)
+            vehicleFuel.pumpedAmount = pumpedAmount
+            vehicleFuel.date = Date.now
+            vehicleFuel.vehicles = vehicle
+            vehicleFuel.vehicles?.fuelTypes?.storages?.currentAmount = newCurrentValueInStorage
+            
+            try vehicleFuel.save()
+        } catch{
             print(error)
         }
-
     }
     
-    private func getVehicle(){
+    private func calculateTotalPumpedAmountInVehicle(){
         do{
-            let request = NSFetchRequest<Vehicle>(entityName: "Vehicle")
-
-            let fetchedVehicles = try context.fetch(request)
-
-            self.vehicles = fetchedVehicles.map(VehicleViewModel.init)
-        }catch{
-            print(error)
-        }
-
-    }
-    
-    private func getFuelTransaction(){
-        do{
+            self.errorMessage = ""
+            
+            if( self.quota == nil ){
+                self.errorMessage.append(contentsOf: "No Quotas found. Please enter Quota. ")
+                isError = true
+                isCloseView = true
+                return
+            }
+            
+            if( self.storage == nil ){
+                self.errorMessage.append(contentsOf: "No Storage found. Please enter Storage. ")
+                isError = true
+                isCloseView = true
+                return
+            }
+            
+            let currentDate = Date.now
+            let startDate = currentDate.startDateOfMonth
+            let endDate = currentDate.endDateOfMonth
+            
             let request = NSFetchRequest<FuelTransaction>(entityName: "FuelTransaction")
-
-            let fetchedVehicleFuels = try context.fetch(request)
-
-            self.vehicleFuels = fetchedVehicleFuels.map(VehicleFuelViewModel.init)
+            request.sortDescriptors = []
+            let vehicleIdPredicate = NSPredicate(format: "vehicles.vehicleId == %@", self.vehicle.vehicleId ?? "")
+            let monthPredicate = NSPredicate(format: "(date >= %@) AND (date <= %@)",  startDate as NSDate, endDate as NSDate)
+            
+            let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [vehicleIdPredicate, monthPredicate])
+            request.predicate   = andPredicate
+            
+            let fetchedVehicleFuel = try context.fetch(request)
+            
+            let vehicleFuel = fetchedVehicleFuel.map(VehicleFuelViewModel.init)
+            
+            if(vehicleFuel.count > 0){
+                self.totalPumpedAmount = vehicleFuel.map{ $0.pumpedAmount }.reduce(0, +)
+            }
+            print("after")
+            print(self.totalPumpedAmount)
+            
         }catch{
             print(error)
         }
-
     }
     
 }
