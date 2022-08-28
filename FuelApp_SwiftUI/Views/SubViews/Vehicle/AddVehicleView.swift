@@ -54,9 +54,9 @@ struct AddVehicleView: View {
                     Button("Save"){
                         addVehicleVM.save()
                         presentationMode.wrappedValue.dismiss()
-                    }.centerHorizontally()
-                    
-                        .navigationTitle("Add New Vehicle")
+                    }
+                    .centerHorizontally()
+                    .navigationTitle("Add New Vehicle")
                 }
                 
             }
