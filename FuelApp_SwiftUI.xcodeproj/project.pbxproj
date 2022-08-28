@@ -54,6 +54,7 @@
 		5070D1AC28B9481400AD90FE /* AddFuelTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */; };
 		5070D1AE28B9482200AD90FE /* FuelTypeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */; };
 		507EFAAE28BA701300D5B4F3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAAD28BA701300D5B4F3 /* SplashView.swift */; };
+		507EFAB228BAE15300D5B4F3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		5070D1AB28B9481400AD90FE /* AddFuelTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFuelTypeViewModel.swift; sourceTree = "<group>"; };
 		5070D1AD28B9482200AD90FE /* FuelTypeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeListViewModel.swift; sourceTree = "<group>"; };
 		507EFAAD28BA701300D5B4F3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				5070D17F28B9345600AD90FE /* Quota+Extensions.swift */,
 				5070D18128B9348500AD90FE /* Storage+Extensions.swift */,
 				5070D18D28B940D000AD90FE /* FuelType+Extensions.swift */,
+				507EFAB128BAE15300D5B4F3 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				5049C90A28B8F51900DF0E95 /* AddVehicleFuelViewModel.swift in Sources */,
 				5070D1AA28B9478100AD90FE /* FuelTypeListView.swift in Sources */,
 				5049C8AF28B8EA3200DF0E95 /* FuelApp_SwiftUIApp.swift in Sources */,
+				507EFAB228BAE15300D5B4F3 /* Date+Extensions.swift in Sources */,
 				5049C90C28B8F53D00DF0E95 /* AddVehicleViewModel.swift in Sources */,
 				5049C8FE28B8F40400DF0E95 /* View+Extensions.swift in Sources */,
 				5070D18028B9345600AD90FE /* Quota+Extensions.swift in Sources */,
