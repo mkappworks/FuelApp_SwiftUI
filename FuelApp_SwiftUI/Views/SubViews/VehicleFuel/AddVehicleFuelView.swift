@@ -19,8 +19,7 @@ struct AddVehicleFuelView: View {
     var body: some View {
         VStack{
             Form{
-                TextField("Vehicle Number", text: $addVehicleFuelVM.vehicleId)
-                    .disabled(true)
+                Text("Vehicle Number : \(addVehicleFuelVM.vehicleId)")
                 
                 Section("Enter Pumped Amount"){
                     TextField("Enter Pumped Amount", value: $addVehicleFuelVM.pumpedAmount, formatter: NumberFormatter())
@@ -29,7 +28,10 @@ struct AddVehicleFuelView: View {
                 
                 Button("Save"){
                     addVehicleFuelVM.save()
-                    presentationMode.wrappedValue.dismiss()
+                    if(addVehicleFuelVM.isError == false){
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                   
                 }
                 .centerHorizontally()
                 .navigationTitle("Add New Vehicle")
@@ -37,7 +39,9 @@ struct AddVehicleFuelView: View {
         }
         .alert(addVehicleFuelVM.errorMessage, isPresented: $addVehicleFuelVM.isError) {
             Button("OK", role: .cancel) {
-                presentationMode.wrappedValue.dismiss()
+                if(addVehicleFuelVM.isCloseView){
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         }
     }

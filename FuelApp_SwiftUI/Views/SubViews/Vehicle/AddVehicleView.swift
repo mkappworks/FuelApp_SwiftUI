@@ -22,8 +22,7 @@ struct AddVehicleView: View {
                 ScanButton(scannedText: $addVehicleVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
                 
                 if(addVehicleVM.vehicleId != ""){
-                    TextField("Vehicle Number", text: $addVehicleVM.vehicleId)
-                        .disabled(true)
+                    Text("Vehicle Number : \(addVehicleVM.vehicleId)")
                     
                     Section("Select Vehicle Type"){
                         Picker("Select Vehicle Type", selection: $addVehicleVM.selectedQuota) {
