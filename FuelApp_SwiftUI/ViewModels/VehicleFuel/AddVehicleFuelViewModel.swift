@@ -99,7 +99,7 @@ class AddVehicleFuelViewModel:   ObservableObject{
             let monthPredicate = NSPredicate(format: "(date >= %@) AND (date <= %@)",  startDate as NSDate, endDate as NSDate)
             
             let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [vehicleIdPredicate, monthPredicate])
-            request.predicate   = andPredicate
+            request.predicate = andPredicate
             
             let fetchedVehicleFuel = try context.fetch(request)
             
