@@ -46,3 +46,5 @@
 "ok" = "OK";
 
 "vehicles" = "Vehicles";
+"quota_error" = "No Quotas found. Please add a Quota";
+"fuel_error" = "No Fuel Types found. Please add a Fuel Type. ";
