@@ -61,7 +61,7 @@ class StorageFuelListViewModel: NSObject, ObservableObject{
         }
     }
     
-    private func getStorages(){
+    func getStorages(){
         do{
             let request = NSFetchRequest<Storage>(entityName: "Storage")
             
