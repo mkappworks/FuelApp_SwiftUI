@@ -9,24 +9,43 @@ import Foundation
 import CoreData
 
 @MainActor
-class StorageFuelListViewModel: ObservableObject{
+class StorageFuelListViewModel: NSObject, ObservableObject{
     
     @Published var errorMessage: String = ""
     @Published var isError: Bool = false
     
-    @Published var selectedStorage: StorageViewModel?
+    @Published var selectedStorage: StorageViewModel? {
+        didSet {
+            storage = selectedStorage?.storageEntity
+            setupFetchRequestPredicateAndFetch()
+        }
+    }
+    
     @Published var storages = [StorageViewModel]()
     @Published var storageFuels = [StorageFuelViewModel]()
     @Published var storage: Storage?
+    
+    private let fetchedResultsController: NSFetchedResultsController<FuelTransaction>
     
     var context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext){
         self.context = context
         
-        self.getStorages()
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: FuelTransaction.all,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
         
-        self.getFuelTransactionByStorage()
+        super.init()
+        
+        fetchedResultsController.delegate = self
+        
+        setupFetchResultsController()
+        
+        getStorages()
     }
     
     func deleteStorageFuel(storageFuelId: NSManagedObjectID){
@@ -48,7 +67,6 @@ class StorageFuelListViewModel: ObservableObject{
             
             let fetchedStorages = try context.fetch(request)
             
-            storage = fetchedStorages.first
             storages = fetchedStorages.map(StorageViewModel.init)
             
             if(storages.count == 0){
@@ -57,6 +75,7 @@ class StorageFuelListViewModel: ObservableObject{
                 return
             }
             
+            storage = fetchedStorages.first
             selectedStorage = storages.first
             
         }catch{
@@ -65,16 +84,46 @@ class StorageFuelListViewModel: ObservableObject{
         
     }
     
-    func getFuelTransactionByStorage(){
-        if(storages.count == 0){return}
-        
-        storage = selectedStorage?.storageEntity
-        
-        let fetchStorageFuels = selectedStorage?.storageEntity.fuelTransactions?.allObjects as! [FuelTransaction]
+    private func setupFetchResultsController() {
+        do{
+            try fetchedResultsController.performFetch()
+            
+            guard let fetchedStorageFuels = fetchedResultsController.fetchedObjects else{
+                return
+            }
+            
+            self.storageFuels = fetchedStorageFuels.map(StorageFuelViewModel.init)
+        } catch{
+            print(error)
+        }
+    }
     
-        storageFuels = fetchStorageFuels.map(StorageFuelViewModel.init)
+    private func setupFetchRequestPredicateAndFetch() {
+        if selectedStorage == nil {
+            fetchedResultsController.fetchRequest.predicate = nil
+        } else {
+            let predicate = NSPredicate(format: "storages == %@", self.selectedStorage?.storageEntity ?? "")
+            fetchedResultsController.fetchRequest.predicate = predicate
+        }
+        
+        setupFetchResultsController()
     }
 }
+
+
+
+extension StorageFuelListViewModel: NSFetchedResultsControllerDelegate{
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let fetchedStorageFuels = controller.fetchedObjects as? [FuelTransaction] else{
+            return
+        }
+        
+        self.storageFuels = fetchedStorageFuels.map(StorageFuelViewModel.init)
+        
+    }
+}
+
+
 
 struct StorageFuelViewModel: Identifiable{
     private var storageFuel: FuelTransaction

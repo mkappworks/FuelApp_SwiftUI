@@ -37,10 +37,7 @@ struct StorageFuelListView: View {
                         
                     }
                     .frame(height: 75)
-                    .pickerStyle(.wheel)
-                    .onChange(of: storageFuelListVM.selectedStorage) {newvalue in                            storageFuelListVM.getFuelTransactionByStorage()
-                    }
-                    
+                    .pickerStyle(.wheel)      
                 }
                 
                 List{
