@@ -26,11 +26,6 @@ class AddStorageFuelViewModel:   ObservableObject{
         self.storage = storage
         
         self.fuelTypeName = storage.fuelTypes?.name ?? ""
-        
-//        self.quota = self.vehicle.quotas
-//        self.storage = self.storage.fuelTypes?.storages
-        
-     //   calculateTotalPumpedAmountInStorage()
     }
     
     func save(){
@@ -58,52 +53,6 @@ class AddStorageFuelViewModel:   ObservableObject{
             print(error)
         }
     }
-    
-//    private func calculateTotalPumpedAmountInStorage(){
-//        do{
-//            self.errorMessage = ""
-//            
-//            if( self.quota == nil ){
-//                self.errorMessage.append(contentsOf: "No Quotas found. Please enter Quota. ")
-//                isError = true
-//                isCloseView = true
-//                return
-//            }
-//            
-//            if( self.storage == nil ){
-//                self.errorMessage.append(contentsOf: "No Storage found. Please enter Storage. ")
-//                isError = true
-//                isCloseView = true
-//                return
-//            }
-//            
-//            let currentDate = Date.now
-//            let startDate = currentDate.startDateOfMonth
-//            let endDate = currentDate.endDateOfMonth
-//            
-//            let request = NSFetchRequest<FuelTransaction>(entityName: "FuelTransaction")
-//            request.sortDescriptors = []
-//            let vehicleIdPredicate = NSPredicate(format: "vehicles.vehicleId == %@", self.vehicle.vehicleId ?? "")
-//            let monthPredicate = NSPredicate(format: "(date >= %@) AND (date <= %@)",  startDate as NSDate, endDate as NSDate)
-//            
-//            let andPredicate = NSCompoundPredicate(type: .and, subpredicates: [vehicleIdPredicate, monthPredicate])
-//            request.predicate   = andPredicate
-//            
-//            let fetchedVehicleFuel = try context.fetch(request)
-//            
-//            let vehicleFuel = fetchedVehicleFuel.map(VehicleFuelViewModel.init)
-//            
-//            if(vehicleFuel.count > 0){
-//                self.totalPumpedAmount = vehicleFuel.map{ $0.pumpedAmount }.reduce(0, +)
-//            }
-//            print("after")
-//            print(self.totalPumpedAmount)
-//            
-//        }catch{
-//            print(error)
-//        }
-//    }
-    
 }
 
 
