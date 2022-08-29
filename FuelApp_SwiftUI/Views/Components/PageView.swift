@@ -11,11 +11,11 @@ struct PageView: View {
     var page: PageModel
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(alignment: .center) {
             Image("\(page.imageUrl)")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 200)
+                .frame( height: 450)
                 .padding()
                 .cornerRadius(30)
                 .background(.gray.opacity(0.10))
