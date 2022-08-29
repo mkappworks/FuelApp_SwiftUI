@@ -46,7 +46,6 @@ class AddVehicleViewModel:   ObservableObject{
             vehicle.vehicleId = self.vehicleId
             vehicle.date = Date.now
             
-            
             vehicle.quotas = self.selectedQuota?.quotaEntity
             
             vehicle.fuelTypes = self.selectedFuelType?.fuelTypeEntity
