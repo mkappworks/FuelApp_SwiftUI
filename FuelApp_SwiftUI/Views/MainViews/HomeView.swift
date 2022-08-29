@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @Environment(\.managedObjectContext) var viewContext
     
+    let hv_home:LocalizedStringKey = "tab_home"
     let hv_vehicles:LocalizedStringKey = "hv_vehicles"
     let hv_storages:LocalizedStringKey = "hv_storages"
     let hv_storage_history:LocalizedStringKey = "hv_storage_history"
@@ -53,7 +54,7 @@ struct HomeView: View {
                 }
                 
             }
-            .navigationTitle("Home")
+            .navigationTitle(hv_home)
         }
     }
 }
