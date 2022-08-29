@@ -16,6 +16,7 @@ struct StorageFuelListView: View {
         self.storageFuelListVM = vm
     }
     let storage_fuel_transaction:LocalizedStringKey = "storage_fuel_transaction"
+    let pump_fuel:LocalizedStringKey = "addNew_storage_fuel"
     let ok:LocalizedStringKey = "ok"
 
     private func deleteStorageFuel(at offsets: IndexSet){
@@ -55,7 +56,7 @@ struct StorageFuelListView: View {
             .toolbar{
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     if(storageFuelListVM.storages.count > 0){
-                        Button("Pump Fuel to Storage"){
+                        Button(pump_fuel){
                             isPresented = true
                         }
                     }
