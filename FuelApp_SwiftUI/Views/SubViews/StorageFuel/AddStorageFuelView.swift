@@ -23,7 +23,7 @@ struct AddStorageFuelView: View {
     var body: some View {
         VStack{
             Form{
-                Text("Fuel Type : \(addStorageFuelVM.fuelTypeName)")
+                Text("Fuel Type : \(addStorageFuelVM.fuelTypeName.uppercased())")
                 
                 Section(enter_pumped_amount){
                     TextField(enter_pumped_amount, value: $addStorageFuelVM.pumpedAmount, formatter: NumberFormatter())
