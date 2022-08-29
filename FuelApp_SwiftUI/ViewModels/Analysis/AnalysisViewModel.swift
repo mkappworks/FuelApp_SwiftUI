@@ -121,6 +121,12 @@ class AnalysisViewModel: ObservableObject{
         
         let  sortedDateToTotalPumpedDict =  sortDateDict(dict: combinedDateToTotalPumpedDict)
         
+        if(Array(sortedDateToTotalPumpedDict).count < 2){
+            errorMessage.append(contentsOf: "Select a start date with atleast two days that has fuel in/out flow for a valid prediction ")
+            isError = true
+            return
+        }
+        
         let dayToTotalPumpedDict  = transformDic(dict: sortedDateToTotalPumpedDict)
         
         calculatePredictedDate(dict: dayToTotalPumpedDict, dictStartDate: Array(sortedDateToTotalPumpedDict)[0].key)
