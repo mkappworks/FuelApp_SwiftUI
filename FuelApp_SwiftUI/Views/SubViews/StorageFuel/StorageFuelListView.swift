@@ -63,7 +63,6 @@ struct StorageFuelListView: View {
                 }
             }
             .sheet(isPresented: $isPresented, onDismiss: {
-                
             }, content: {
                 AddStorageFuelView(vm: AddStorageFuelViewModel(context: viewContext, storage: storageFuelListVM.storage!))
             })

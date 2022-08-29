@@ -19,7 +19,7 @@ struct AddStorageFuelView: View {
     let ok:LocalizedStringKey = "ok"
     let common_save:LocalizedStringKey = "common_save"
     let addNew_storage_fuel:LocalizedStringKey = "addNew_storage_fuel"
-
+    
     var body: some View {
         VStack{
             Form{
@@ -35,7 +35,7 @@ struct AddStorageFuelView: View {
                     if(addStorageFuelVM.isError == false){
                         presentationMode.wrappedValue.dismiss()
                     }
-                   
+                    
                 }
                 .centerHorizontally()
                 .navigationTitle(addNew_storage_fuel)

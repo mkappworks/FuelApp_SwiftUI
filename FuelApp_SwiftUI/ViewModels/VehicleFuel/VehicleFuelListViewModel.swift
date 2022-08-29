@@ -11,20 +11,43 @@ import CoreData
 @MainActor
 class VehicleFuelListViewModel: NSObject, ObservableObject{
     
-    @Published var vehicleId: String = ""
-    @Published var vehicleFuels = [VehicleFuelViewModel]()
-    @Published var vehicle: Vehicle?
+    @Published var vehicleId: String = ""{
+        didSet {
+            checkVehicleRegistered()
+        }
+    }
     
-    private (set) var context: NSManagedObjectContext
+    @Published var vehicleFuels = [VehicleFuelViewModel]()
+    
+    @Published var vehicle: Vehicle?{
+        didSet {
+            setupFetchRequestPredicateAndFetch()
+        }
+    }
     
     @Published var errorMessage: String = ""
     @Published var isError: Bool = false
     @Published var canPumpFuel: Bool = false
-   // private let fetchedResultsController: NSFetchedResultsController<Vehicle>
+    
+    private (set) var context: NSManagedObjectContext
+    private let fetchedResultsController: NSFetchedResultsController<FuelTransaction>
     
     init(context: NSManagedObjectContext){
         self.context = context
-    
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: FuelTransaction.all,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        
+        super.init()
+        
+        fetchedResultsController.delegate = self
+        
+        setupFetchRequestPredicateAndFetch()
+        
     }
     
     func deleteVehicleFuel(vehicleFuelId: NSManagedObjectID){
@@ -60,13 +83,35 @@ class VehicleFuelListViewModel: NSObject, ObservableObject{
             self.isError = false
             self.canPumpFuel = true
             self.vehicle = fetchedVehicle
-            let fuelTransaction = self.vehicle?.fuelTransactions?.allObjects as? [FuelTransaction]
-            self.vehicleFuels = fuelTransaction!.map(VehicleFuelViewModel.init)
         }catch{
             print(error)
         }
     }
     
+    
+    private func setupFetchResultsController() {
+        do{
+            try fetchedResultsController.performFetch()
+            
+            guard let fetchedVehicleFuels = fetchedResultsController.fetchedObjects else{
+                return
+            }
+            
+            self.vehicleFuels = fetchedVehicleFuels.map(VehicleFuelViewModel.init)
+        } catch{
+            print(error)
+        }
+    }
+    
+    private func setupFetchRequestPredicateAndFetch() {
+        if vehicle == nil {
+            fetchedResultsController.fetchRequest.predicate = nil
+        } else {
+            let predicate = NSPredicate(format: "vehicles == %@", self.vehicle ?? "")
+            fetchedResultsController.fetchRequest.predicate = predicate
+            setupFetchResultsController()
+        }
+    }
 }
 
 extension VehicleFuelListViewModel: NSFetchedResultsControllerDelegate{

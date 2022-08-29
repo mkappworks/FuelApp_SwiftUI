@@ -43,7 +43,7 @@ class StorageFuelListViewModel: NSObject, ObservableObject{
         
         fetchedResultsController.delegate = self
         
-        setupFetchResultsController()
+        setupFetchRequestPredicateAndFetch()    
         
         getStorages()
     }
@@ -104,9 +104,8 @@ class StorageFuelListViewModel: NSObject, ObservableObject{
         } else {
             let predicate = NSPredicate(format: "storages == %@", self.selectedStorage?.storageEntity ?? "")
             fetchedResultsController.fetchRequest.predicate = predicate
+            setupFetchResultsController()
         }
-        
-        setupFetchResultsController()
     }
 }
 

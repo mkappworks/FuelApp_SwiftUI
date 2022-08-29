@@ -108,7 +108,7 @@ class AddVehicleFuelViewModel:   ObservableObject{
             if(vehicleFuel.count > 0){
                 self.totalPumpedAmount = vehicleFuel.map{ $0.pumpedAmount }.reduce(0, +)
             }
-            print("after")
+            
             print(self.totalPumpedAmount)
             
         }catch{
