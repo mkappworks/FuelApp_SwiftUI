@@ -212,7 +212,7 @@ class AnalysisViewModel: ObservableObject{
         let yIntercept =  Array(dict)[0].value
         
         let dayFromStartDay = (predictedFuelLevel - yIntercept)/slopeOfBestFitLine
-
+        
         predictedDate = Calendar.current.date(byAdding: .day, value: Int(dayFromStartDay), to: dictStartDate)
     }
 }
