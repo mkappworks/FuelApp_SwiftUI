@@ -39,7 +39,7 @@ class VehicleListViewModel: NSObject, ObservableObject{
         } catch{
             print(error)
         }
-
+        
     }
     
     func deleteVehicle(vehicleId: NSManagedObjectID){
@@ -67,7 +67,7 @@ extension VehicleListViewModel: NSFetchedResultsControllerDelegate{
     }
 }
 
-struct VehicleViewModel: Identifiable{
+struct VehicleViewModel: Identifiable, Hashable{
     private var vehicle: Vehicle
     
     init(vehicle: Vehicle){
@@ -82,12 +82,16 @@ struct VehicleViewModel: Identifiable{
         vehicle.vehicleId ?? ""
     }
     
+    var date: Date{
+        vehicle.date!
+    }
+    
     var vehicleType: String{
-        vehicle.vehicleType ?? ""
+        vehicle.quotas?.vehicleType ?? ""
     }
     
     var fuelType: String{
-        vehicle.fuelType ?? ""
+        vehicle.fuelTypes?.name ?? ""
     }
     
     

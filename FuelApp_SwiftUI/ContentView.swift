@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    let tab_home:LocalizedStringKey = "tab_home"
+    let tab_analysis:LocalizedStringKey = "tab_analysis"
+    let tab_help:LocalizedStringKey = "tab_help"
+
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
         ZStack{
@@ -15,17 +20,17 @@ struct ContentView: View {
                     HomeView()
                         .tabItem {
                             Image(systemName: "house")
-                            Text("Home")
+                            Text(tab_home)
                         }
-                    AnalysisView()
+                    AnalysisView(vm: AnalysisViewModel(context: viewContext))
                         .tabItem {
                             Image(systemName: "building.columns.fill")
-                            Text("Analysis")
+                            Text(tab_analysis)
                         }
                     HelpView()
                         .tabItem {
                             Image(systemName: "questionmark")
-                            Text("Help")
+                            Text(tab_help)
                         }
                     
                     
