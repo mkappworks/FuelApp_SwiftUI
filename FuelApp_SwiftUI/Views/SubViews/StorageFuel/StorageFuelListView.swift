@@ -16,8 +16,9 @@ struct StorageFuelListView: View {
         self.storageFuelListVM = vm
     }
     let storage_fuel_transaction:LocalizedStringKey = "storage_fuel_transaction"
+    let pump_fuel:LocalizedStringKey = "addNew_storage_fuel"
     let ok:LocalizedStringKey = "ok"
-
+    
     private func deleteStorageFuel(at offsets: IndexSet){
         offsets.forEach { index in
             let storageFuel = storageFuelListVM.storageFuels[index]
@@ -26,57 +27,55 @@ struct StorageFuelListView: View {
     }
     
     var body: some View {
-            VStack{
-                Section("Select Storage"){
-                    Picker("Select Storage", selection: $storageFuelListVM.selectedStorage) {
-                        ForEach(storageFuelListVM.storages, id: \.self)  {(storage: StorageViewModel) in
-                            Text(storage.fuelType.uppercased())
-                                .tag(storage as StorageViewModel?)
-                                .font(.system(size: 20))
-                        }
-                        
-                    }
-                    .frame(height: 75)
-                    .pickerStyle(.wheel)
-                    .onChange(of: storageFuelListVM.selectedStorage) {newvalue in                            storageFuelListVM.getFuelTransactionByStorage()
+        VStack{
+            Section("Select Storage"){
+                Picker("Select Storage", selection: $storageFuelListVM.selectedStorage) {
+                    ForEach(storageFuelListVM.storages, id: \.self)  {(storage: StorageViewModel) in
+                        Text(storage.fuelType.uppercased())
+                            .tag(storage as StorageViewModel?)
+                            .font(.system(size: 20))
                     }
                     
                 }
-                
-                List{
-                    ForEach(storageFuelListVM.storageFuels){storageFuel in
-                        VStack(alignment: .leading){
-                            Text("Date : \(storageFuel.date, style: .date)")
-                            Text("Pumped Amount : \(storageFuel.pumpedAmount, specifier: "%.2f")")
-                        }
-                    }
-                    .onDelete(perform: deleteStorageFuel)
-                    
-                }
+                .frame(height: 75)
+                .pickerStyle(.wheel)
             }
-            .navigationTitle(storage_fuel_transaction)
-            .toolbar{
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    if(storageFuelListVM.storages.count > 0){
-                        Button("Pump Fuel to Storage"){
-                            isPresented = true
-                        }
-                    }
-                    
-                }
-            }
-            .sheet(isPresented: $isPresented, onDismiss: {
-                
-            }, content: {
-                AddStorageFuelView(vm: AddStorageFuelViewModel(context: viewContext, storage: storageFuelListVM.storage!))
-            })
-            .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
-                Button(ok, role: .cancel) {
-                    //dismiss alert
-                }
-        }
-    
             
+            List{
+                ForEach(storageFuelListVM.storageFuels){storageFuel in
+                    VStack(alignment: .leading){
+                        Text("Date : \(storageFuel.date, style: .date)")
+                        Text("Pumped Amount : \(storageFuel.pumpedAmount, specifier: "%.2f")")
+                    }
+                }
+                .onDelete(perform: deleteStorageFuel)
+                
+            }
+        }
+        .navigationTitle(storage_fuel_transaction)
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                if(storageFuelListVM.storages.count > 0){
+                    Button(pump_fuel){
+                        isPresented = true
+                    }
+                }
+                
+            }
+        }
+        .sheet(isPresented: $isPresented, onDismiss: {
+        }, content: {
+            AddStorageFuelView(vm: AddStorageFuelViewModel(context: viewContext, storage: storageFuelListVM.storage!))
+        })
+        .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
+            Button(ok, role: .cancel) {
+                //dismiss alert
+            }
+            
+        }
+        .onAppear(){
+            storageFuelListVM.getStorages()
+        }
     }
 }
 

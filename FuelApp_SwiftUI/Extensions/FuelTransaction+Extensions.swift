@@ -11,7 +11,7 @@ import CoreData
 extension FuelTransaction: BaseModel{
     static var all: NSFetchRequest<FuelTransaction>{
         let request = FuelTransaction.fetchRequest()
-        request.sortDescriptors = []
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         return request
     }
 }

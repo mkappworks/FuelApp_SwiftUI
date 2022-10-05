@@ -39,7 +39,7 @@
 "storages" = "Storages";
 "add_new_storage" = "Add New storage";
 
-"scan_vehicle_number" = "Scan Vehicle Number";
+"scan_vehicle_number" = "Scan Vehicle";
 "vehicle_number" = "Vehicle Number";
 "select_vehicle_type" = "Select Vehicle Type";
 "add_new_vehicle" = "Add New Vehicle";
@@ -50,7 +50,7 @@
 "fuel_error" = "No Fuel Types found. Please add a Fuel Type. ";
 "enter_pumped_amount" = "Enter Pumped Amount";
 "vehicle_fuel_transaction" = "Vehicle Fuel";
-"pump_fuel_to_vehicle" = "Pump Fuel to Vehicle";
+"pump_fuel_to_vehicle" = "Pump Fuel";
 
 "storage_fuel_transaction" = "Storage Fuel";
-"addNew_storage_fuel" = "Add New Storage Fuel";
+"addNew_storage_fuel" = "Pump Fuel To Storage";

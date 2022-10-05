@@ -17,7 +17,7 @@ struct VehicleFuelListView: View {
     }
     let vehicle_fuel_transaction:LocalizedStringKey = "vehicle_fuel_transaction"
     let pump_fuel_to_vehicle:LocalizedStringKey = "pump_fuel_to_vehicle"
-
+    
     private func deleteVehicleFuel(at offsets: IndexSet){
         offsets.forEach { index in
             let vehicleFuel = vehicleFuelListVM.vehicleFuels[index]
@@ -26,42 +26,40 @@ struct VehicleFuelListView: View {
     }
     
     var body: some View {
-            VStack{
-                List{
-                    ForEach(vehicleFuelListVM.vehicleFuels){vehicleFuel in
-                        VStack(alignment: .leading){
-                            Text("Date : \(vehicleFuel.date, style: .date)")
-                            Text("Pumped Amount : \(vehicleFuel.pumpedAmount, specifier: "%.2f")")
-                        }
+        VStack{
+            List{
+                ForEach(vehicleFuelListVM.vehicleFuels){vehicleFuel in
+                    VStack(alignment: .leading){
+                        Text("Date : \(vehicleFuel.date, style: .date)")
+                        Text("Pumped Amount : \(vehicleFuel.pumpedAmount, specifier: "%.2f")")
                     }
-                    .onDelete(perform: deleteVehicleFuel)
                 }
+                .onDelete(perform: deleteVehicleFuel)
             }
-            .sheet(isPresented: $isPresented, onDismiss: {
-                //dismiss
-            }, content: {
-                AddVehicleFuelView(vm: AddVehicleFuelViewModel(context: viewContext, vehicle: vehicleFuelListVM.vehicle!))
-            })
-            .navigationTitle(vehicle_fuel_transaction)
-            .toolbar{
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    ScanButton(scannedText: $vehicleFuelListVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
-                        .onChange(of: vehicleFuelListVM.vehicleId) {newvalue in                            vehicleFuelListVM.checkVehicleRegistered()
-                        }
-                    
-                    if(vehicleFuelListVM.canPumpFuel){
-                        Button(pump_fuel_to_vehicle){
-                            isPresented = true
-                        }
-                    }
-                }
+        }
+        .sheet(isPresented: $isPresented, onDismiss: {
+            //dismiss
+        }, content: {
+            AddVehicleFuelView(vm: AddVehicleFuelViewModel(context: viewContext, vehicle: vehicleFuelListVM.vehicle!))
+        })
+        .navigationTitle(vehicle_fuel_transaction)
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ScanButton(scannedText: $vehicleFuelListVM.vehicleId, buttonImageName: "camera.badge.ellipsis", buttonTitle: "Scan Vehicle Number")
                 
-            }
-            .alert(vehicleFuelListVM.errorMessage, isPresented: $vehicleFuelListVM.isError) {
-                Button("OK", role: .cancel) {
-                    //dismiss alert
+                if(vehicleFuelListVM.canPumpFuel){
+                    Button(pump_fuel_to_vehicle){
+                        isPresented = true
+                    }
                 }
             }
+            
+        }
+        .alert(vehicleFuelListVM.errorMessage, isPresented: $vehicleFuelListVM.isError) {
+            Button("OK", role: .cancel) {
+                //dismiss alert
+            }
+        }
     }
 }
 

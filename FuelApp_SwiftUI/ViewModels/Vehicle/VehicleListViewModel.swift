@@ -39,7 +39,7 @@ class VehicleListViewModel: NSObject, ObservableObject{
         } catch{
             print(error)
         }
-
+        
     }
     
     func deleteVehicle(vehicleId: NSManagedObjectID){
@@ -89,7 +89,7 @@ struct VehicleViewModel: Identifiable, Hashable{
     var vehicleType: String{
         vehicle.quotas?.vehicleType ?? ""
     }
-
+    
     var fuelType: String{
         vehicle.fuelTypes?.name ?? ""
     }

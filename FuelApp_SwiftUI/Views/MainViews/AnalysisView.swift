@@ -32,14 +32,13 @@ struct AnalysisView: View {
                         .pickerStyle(.wheel)
                         .onChange(of: analysisVM.selectedStorage) {newvalue in                              analysisVM.getFuelTransactions()
                         }
+                        .onTapGesture{hideKeyboard()}
                         
                     }
                     
                     if(analysisVM.selectedStorage != nil){
-                        Text("Current Amount in \(analysisVM.selectedStorage!.fuelType) : \(analysisVM.selectedStorage!.currentAmount, specifier: "%.2f")")
+                        Text("Current Amount in \(analysisVM.selectedStorage!.fuelType.uppercased()) : \(analysisVM.selectedStorage!.currentAmount, specifier: "%.2f")")
                     }
-                    
-
                     
                     DatePicker("Select Start Date", selection: $analysisVM.startDate, in: ...Date(), displayedComponents: .date )
                         .onChange(of: analysisVM.startDate) {newvalue in                              analysisVM.getFuelTransactions()
@@ -57,23 +56,15 @@ struct AnalysisView: View {
                     }
                 }
                 
-                
-                
             }
             .navigationTitle("Fuel Analysis")
-            
-            //            .sheet(isPresented: $isPresented, onDismiss: {
-            //
-            //            }, content: {
-            //                AddStorageFuelView(vm: AddStorageFuelViewModel(context: viewContext, storage: storageFuelListVM.storage!))
-            //            })
-            //        }
-            //        .alert(storageFuelListVM.errorMessage, isPresented: $storageFuelListVM.isError) {
-            //            Button("OK", role: .cancel) {
-            //                //dismiss alert
-            //            }
-            //
-            //        }
+            .alert(analysisVM.errorMessage, isPresented: $analysisVM.isError) {
+                Button("OK", role: .cancel) {
+                    analysisVM.isError = false
+                    analysisVM.errorMessage = ""
+                    //dismiss alert
+                }
+            }
         }
     }
 }
